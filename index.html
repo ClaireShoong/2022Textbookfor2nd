@@ -243,6 +243,7 @@
     .nav-btn.next { background: var(--primary); color: white; }
     .nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+/* [새로 추가된 Reading TTS 스타일] */
     .read-btn {
       background: #eff6ff;
       border: 1px solid var(--primary);
@@ -264,13 +265,14 @@
       color: white;
       transform: scale(1.1);
     }
+    /* 읽고 있는 문단 강조 효과 */
     .reading-highlight {
-      background-color: #e0f2fe;
+      background-color: #e0f2fe; /* 연한 파란색 배경 */
       border-radius: 8px;
       transition: background-color 0.3s;
-      padding: 5px;
+      padding: 5px; /* 약간의 여백 */
     }
-    .tip-box {
+.tip-box {
       background: #f0f9ff;
       border-left: 5px solid var(--primary);
       padding: 15px 20px;
@@ -281,69 +283,10 @@
     }
 
   </style>
-</head>
-<body>
-
-<div id="pageScroller">
-
-  <header>
-    <h1>영어Ⅰ (천재) Lesson 1-6 Master</h1>
-    <select id="lessonSelect" class="lesson-selector" onchange="changeLesson()">
-      <option value="L1">L1: For a Satisfying Life (Life is a Journey)</option>
-      <option value="L2">L2: Creativity Is Key (Unconventional Thinking)</option>
-      <option value="L3">L3: In Harmony with Nature (Wetlands)</option>
-      <option value="L4">L4: The Spirit of Sports (Cycling)</option>
-      <option value="L5">L5: Explore the Amazing World (Law & Culture)</option>
-      <option value="L6">L6: Art in Our Lives (Pointillism)</option>
-    </select>
-  </header>
-
-  <div class="container">
-    <nav class="tabs">
-      <button class="tab-btn active" onclick="openTab('vocab', this)">🃏 단어 & 게임</button>
-      <button class="tab-btn" onclick="openTab('grammar', this)">🧩 문장 게임</button>
-      <button class="tab-btn" onclick="openTab('reading', this)">📖 읽기</button>
-      <button class="tab-btn" onclick="openTab('quiz', this)">📝 퀴즈</button>
-    </nav>
-
-    <div id="vocab" class="content-section active">
-      <!-- 단어 관련 모든 모드 (플래시카드, 철자연습, 퀴즈, 듣고고르기 등) -->
-      <div class="mode-switch-box">
-        <button id="modeCard" class="mode-btn active" onclick="setVocabMode('card')">🃏 플래시카드</button>
-        <button id="modeGame" class="mode-btn" onclick="setVocabMode('game')">✍️ 철자 연습</button>
-        <button id="modeQuiz" class="mode-btn" onclick="setVocabMode('quiz')">❓ 퀴즈</button>
-        <button id="modeListen" class="mode-btn" onclick="setVocabMode('listen')" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);color:white;border-color:#7c3aed;">🔊 듣고 고르기</button>
-        <button id="modeFill" class="mode-btn" onclick="setVocabMode('fill')" style="background:linear-gradient(135deg,#0891b2,#0e7490);color:white;border-color:#0891b2;">🖊️ 빈칸 채우기</button>
-        <button id="modeCopy" class="mode-btn" onclick="setVocabMode('copy')" style="background:linear-gradient(135deg,#059669,#047857);color:white;border-color:#059669;">📋 보고 베끼기</button>
-        <button id="modeBadge" class="mode-btn" onclick="setVocabMode('badge')" style="background:linear-gradient(135deg,#d97706,#b45309);color:white;border-color:#d97706;">⭐ 내 뱃지</button>
-      </div>
-      <div id="vocabCardMode">
-        <div class="tip-box">👆 카드를 클릭하면 뜻이 나옵니다. 🔊 버튼을 누르면 발음이 나옵니다!</div>
-        <div id="vocabList" class="flashcard-container"></div>
-      </div>
-      <div id="vocabGameMode" style="display:none;"><div id="vocabGameArea"></div></div>
-      <div id="vocabQuizMode" style="display:none;"><div id="vocabQuizArea"></div></div>
-      <div id="vocabListenMode" style="display:none;"><div id="vocabListenArea"></div></div>
-      <div id="vocabFillMode" style="display:none;"><div id="vocabFillArea"></div></div>
-      <div id="vocabCopyMode" style="display:none;"><div id="vocabCopyArea"></div></div>
-      <div id="vocabBadgeMode" style="display:none;"><div id="vocabBadgeArea"></div></div>
-    </div>
-
-    <div id="grammar" class="content-section">
-      <div class="tip-box">🧩 단어를 클릭하여 <span style="color:#ef4444; margin:0 4px;">한국어 뜻과 같은</span> 문장을 완성하세요!</div>
-      <div id="grammarList"></div>
-    </div>
-
-    <div id="reading" class="content-section">
-      <div id="readingContent" class="reading-box"></div>
-    </div>
-
-    <div id="quiz" class="content-section">
-      <div id="quizArea"></div>
-    </div>
-
-  </div>
-</div>
+  <script>
+  // 트랙패드 ctrl+wheel 줌은 허용 (일반 wheel은 그대로)
+  // 툴바 버튼 탭 시 visualViewport.scroll 오발 방지만 유지
+  // (툴바 자체 touchstart/touchmove preventDefault는 판서 JS 안에서 처리)
   </script>
 </head>
 <body>
