@@ -865,7 +865,23 @@ The era of Pointillism came to an end after the first half of the twentieth cent
     let vocabQuizScore = 0;
     let vocabQuizHistory = {};
     let vocabMode = 'card';
+function posBadgeHTML(pos) {
+      return pos ? `<span style="color:#3b82f6; font-weight:bold;">${pos}</span>` : '';
+    }
 
+    function getLessonVocab() {
+      return lessons[currentLessonId].vocab;
+    }
+
+    function makeProgress(current, total, color) {
+      const percent = Math.round((current / total) * 100) || 0;
+      return `<div style="width:100%; background:#e2e8f0; border-radius:10px; height:8px; margin-bottom:15px; overflow:hidden;">
+                <div style="width:${percent}%; background:${color}; height:100%; transition:width 0.3s;"></div>
+              </div>`;
+    }
+
+    function addXP(mode, isCorrect) {
+      // 에러 방지용 빈 함수
     window.changeLesson = function changeLesson() {
       currentLessonId = document.getElementById('lessonSelect').value;
       currentGrammarIndex = 0;
