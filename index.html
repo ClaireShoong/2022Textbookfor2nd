@@ -2411,7 +2411,7 @@ window.basicVocab = [{"w":"abandon","p":"v","k":"포기하다"},{"w":"ability","
 
 </div>
 
-<!-- ===== 인라인 편집 모달 ===== -->
+
 <script>
 // ===== 카드 인라인 편집 (비주얼 품사 편집 + 직독직해/노트) =====
 const SY_POS_LIST = ['S','V','VB','VM','O','C','M','CL','PP',''];
@@ -3835,30 +3835,6 @@ window.aipCloseSheet = function() {
     }, 100);
   };
 
-  window.aipSynSave = function() {
-    const lesson = document.getElementById('aipSynLesson').value;
-    const num = parseInt(document.getElementById('aipSynNum').value);
-    const kr = document.getElementById('aipSynKr').value.trim();
-    const note = document.getElementById('aipSynNote').value.trim();
-    const data = window.syntaxAllData && window.syntaxAllData[lesson];
-    if (!data || !num) return;
-    const item = data.find(d => d.num === num);
-    if (!item) return;
-    item.kr = kr;
-    item.note = note;
-    item.html = aipChipsToHtml(aipCurrentChips);
-    // 현재 보고 있는 레슨이면 즉시 재렌더
-    const curLesson = document.getElementById('lessonSelect')?.value;
-    if (curLesson === lesson && typeof renderSyntaxAnalysis === 'function') {
-      renderSyntaxAnalysis();
-    }
-    // localStorage 저장
-    aipSaveToStorage();
-    const msg = document.getElementById('aipSynMsg');
-    msg.style.color = '#10b981';
-    msg.textContent = '✅ 저장 완료! (새로고침 후에도 유지됩니다)';
-    setTimeout(() => msg.textContent = '', 3000);
-  };
 
   window.aipSynReset = function() {
     const lesson = document.getElementById('aipSynLesson').value;
@@ -4465,27 +4441,6 @@ window.closePosPopup = function(e) {
     if (typeof currentLessonId !== 'undefined' && currentLessonId === lid) {
       if (typeof renderReading === 'function') renderReading();
     }
-  };
-
-  // ===== HTML 내보내기 =====
-  window.edExportHTML = function() {
-    const data = window.lessons || lessons;
-    // 현재 페이지의 HTML을 가져와서 lessons 데이터를 교체
-    const orig = document.documentElement.outerHTML;
-    // lessons 객체를 직렬화
-    const newLessonsStr = 'const lessons = ' + JSON.stringify(data, null, 2) + ';';
-    // 원본 HTML에서 const lessons = { ... }; 부분을 교체
-    // 정규식으로 const lessons = { 에서 시작해서 closing }; 찾기
-    const replaced = orig.replace(
-      /const lessons\s*=\s*\{[\s\S]*?\};\s*(?=\s*(\/\/|window\.|function |var |let |const ))/,
-      newLessonsStr + '\n    '
-    );
-    const blob = new Blob([replaced], { type: 'text/html;charset=utf-8' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = '영어1_편집완료_' + new Date().toISOString().slice(0,10) + '.html';
-    a.click();
-    URL.revokeObjectURL(a.href);
   };
 
   // ===== 유틸 =====
