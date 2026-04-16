@@ -898,6 +898,10 @@ function posBadgeHTML(pos) {
       if(typeof renderWordMaster === 'function') renderWordMaster();
       if(typeof renderGrammar === 'function') renderGrammar();
       if(typeof renderSyntaxAnalysis === 'function') renderSyntaxAnalysis();
+      if (typeof _origCL === 'function') {
+    _origCL.apply(this, arguments); 
+  }
+};
     }
 
     window.addEventListener('DOMContentLoaded', () => changeLesson());
@@ -1292,11 +1296,16 @@ function posBadgeHTML(pos) {
     function nextVocabQuiz() { currentVocabQuizIndex++; renderVocabQuiz(); }
     function prevVocabQuiz() { if(currentVocabQuizIndex > 0) { currentVocabQuizIndex--; renderVocabQuiz(); } }
 
-    function speak(text) {
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US';
-      window.speechSynthesis.speak(u);
-    }
+    // [수정 1] 누락된 TTS(음성 출력) 함수 추가
+function speak(text) {
+  // 브라우저가 음성 합성을 지원하지 않으면 무시
+  if (!window.speechSynthesis) return; 
+  
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US'; // 영어(미국)로 설정
+  utterance.rate = 1.0;     // 말하기 속도 (필요시 조절)
+  window.speechSynthesis.speak(utterance);
+}
 
     function renderGrammarGame() {
       const list = lessons[currentLessonId].grammarPatterns;
@@ -6432,8 +6441,9 @@ window.closePosPopup = function(e) {
   /* ─────────────────────────────────────────────
      9. changeLesson 연동
   ───────────────────────────────────────────── */
-  const _origCL = window.changeLesson;
-  window.changeLesson = function () {
+  const _origCL = window.changeLesson || function() {}; 
+
+window.changeLesson = function() {
     if (_origCL) _origCL();
     _feQIdx = 0; _feFIdx = 0;
     const sec = document.getElementById('fixedExprSection');
