@@ -282,24 +282,6 @@
       color: #334155;
     }
 
-    /* 순서/랜덤 토글 */
-    .order-toggle-box {
-      display: flex; align-items: center; justify-content: center;
-      gap: 6px; margin-bottom: 14px; flex-wrap: wrap;
-    }
-    .order-toggle-label {
-      font-size: 0.85rem; font-weight: 700; color: #64748b; margin-right: 4px;
-    }
-    .order-btn {
-      padding: 6px 16px; border-radius: 20px; border: 2px solid #cbd5e1;
-      background: white; color: #64748b; font-weight: 700; cursor: pointer;
-      font-size: 0.88rem; transition: all 0.18s;
-    }
-    .order-btn.active {
-      background: #1e40af; color: white; border-color: #1e40af;
-    }
-    .order-btn:not(.active):hover { border-color: #93c5fd; color: #1e40af; }
-
   </style>
   <script>
   // 트랙패드 ctrl+wheel 줌은 허용 (일반 wheel은 그대로)
@@ -344,11 +326,6 @@
         <button id="modeCopy" class="mode-btn" onclick="setVocabMode('copy')" style="background:linear-gradient(135deg,#059669,#047857);color:white;border-color:#059669;">📋 보고 베끼기</button>
         <button id="modeBadge" class="mode-btn" onclick="setVocabMode('badge')" style="background:linear-gradient(135deg,#d97706,#b45309);color:white;border-color:#d97706;">⭐ 내 뱃지</button>
       </div>
-      <div class="order-toggle-box" id="vocabOrderToggle">
-        <span class="order-toggle-label">학습 순서:</span>
-        <button id="btnVocabSeq" class="order-btn active" onclick="setVocabOrder('seq')">📋 순서대로</button>
-        <button id="btnVocabRand" class="order-btn" onclick="setVocabOrder('rand')">🔀 랜덤</button>
-      </div>
       <div id="vocabCardMode">
         <div class="tip-box">👆 카드를 클릭하면 뜻이 나옵니다. 🔊 버튼을 누르면 발음이 나옵니다!</div>
         <div id="vocabList" class="flashcard-container"></div>
@@ -374,12 +351,7 @@
     </div>
 
     <div id="grammar" class="content-section">
-      <div class="tip-box">🧩 단어를 클릭하여 <span style="color:#ef4444; margin:0 4px;">한국어 뜻과 같은</span> 문장을 완성하세요! <span style="color:#64748b; font-size:0.9em;">배치한 단어를 다시 클릭하면 되돌릴 수 있어요.</span></div>
-      <div class="order-toggle-box" id="grammarOrderToggle">
-        <span class="order-toggle-label">학습 순서:</span>
-        <button id="btnGramSeq" class="order-btn active" onclick="setGrammarOrder('seq')">📋 순서대로</button>
-        <button id="btnGramRand" class="order-btn" onclick="setGrammarOrder('rand')">🔀 랜덤</button>
-      </div>
+      <div class="tip-box">🧩 단어를 클릭하여 <span style="color:#ef4444; margin:0 4px;">한국어 뜻과 같은</span> 문장을 완성하세요!</div>
       <div id="grammarList"></div>
     </div>
 
@@ -708,7 +680,7 @@ The Sudd wetland is the largest wetland in Africa, sustained by the flow of the 
           <p>My name is Bliksem, which means “lightning.” My parents named me this because they wanted me to be faster than anyone else. Born in the Netherlands, a country with more bicycles than people, I learned to ride a bike almost as soon as I could walk. I loved feeling the breeze in my hair. When I was eleven, a junior bicycle race was held in our small town. I entered the race as the youngest rider. Before the race started, I looked around the crowd, and I couldn’t believe my eyes! My hero, Gabriel Martinez, the cycling world champion, was standing there! I ran over and asked, “You’re Gabriel Martinez, right? Can I have your autograph?” He smiled and said, “If you win, you can.” Excited by what he said, I pedaled harder than ever. I came in first and Gabriel was waiting at the finish line. As promised, he handed me his autograph saying, “You outran the others by two laps! You’re a real racer, kid!”</p>
           <p>Since then, Gabriel has been my mentor. When I turned nineteen, he brought me into his professional team, where only the most skilled and passionate cyclists came together. I felt small and insignificant. I could sprint the fastest on flat courses, but I always fell behind in mountain races. The Netherlands is mostly flat, so I had rarely cycled up steep slopes before. Gabriel was from Bogotá, Colombia, which is high up in the Andes. He had a lot of experience in riding on hills and mountains, so he was always the first to arrive at the top. He would say, “Riding uphill is painful, but the view at the top is fantastic. Never stop pedaling, kid.”</p>
 
-<p>As a domestique, who supports the leader and the team during a cycling race, I was riding in front of Gabriel to shield him from the headwind. Our team was far ahead of the others. Everything was going perfectly until I crashed due to a crack in the road. All four of us fell in the crash, and the other teams passed us by. I was just slightly wounded, but Gabriel’s injury was more serious. He urged me to continue on his behalf. But there were a couple of more steep slopes ahead, and I doubted we had a chance. Gabriel read my mind and yelled, “Remember the view at the top. Never stop pedaling whatever it takes, kid. Now go!”
+<p>a domestique, who supports the leader and the team during a cycling race, I was riding in front of Gabriel to shield him from the headwind. Our team was far ahead of the others. Everything was going perfectly until I crashed due to a crack in the road. All four of us fell in the crash, and the other teams passed us by. I was just slightly wounded, but Gabriel’s injury was more serious. He urged me to continue on his behalf. But there were a couple of more steep slopes ahead, and I doubted we had a chance. Gabriel read my mind and yelled, “Remember the view at the top. Never stop pedaling whatever it takes, kid. Now go!”
 Pedaling with all my strength, I finished second in that race, but I felt a sense of guilt for my fellow team members. I should have been more careful. If I had not crashed, Gabriel would have come in first place, and our team would have won. Surprisingly, Gabriel gave me a gentle hug and said, “I knew you could do it. I’m so proud of you!”</p>
 
 <p>For several years, I assisted Gabriel in races as a domestique. As we cycled together, our team’s results flourished. When the time came for his retirement, Gabriel asked the members if I could lead the team in his final race. He said he could no longer ride faster than me in the last sprint to the finish line and insisted that I ought to be the team leader. I was deeply touched and felt a burden on my shoulders. I was determined to make him proud.</p>
@@ -791,9 +763,7 @@ Pedaling with all my strength, I finished second in that race, but I felt a sens
 
 <p>The nation’s prime minister at the time came up with strategies to boost national prosperity, one of which was to transform the nation into an “oasis” for tourists in Asia. In order to accomplish this, he emphasized cleanliness and orderliness, which resulted in the establishment of the gum ban in 1992. At that time, chewing gum left on streets, roads, and stairs diminished the country’s beauty and raised the cleaning costs. The country’s ban on chewing gum has become one of the most well-known aspects of life in Singapore, along with its laws against improperly throwing away trash and spitting in public. These laws being implemented, people could enjoy clean public spaces. Today, Singapore leads the world in terms of cleanliness and welcomes millions of tourists every year.</p>
 
-<p>That is very interesting, Chen. Sophia, what about Italy? Are there any interesting laws there?</p>
-
-<p>Yes, of course. In Rome, some tourists’ actions caused severe damage to the city’s historical monuments. So, the city had to establish a number of laws to protect its numerous historical sites. One of them was to forbid adding a lock to any bridge in Rome. You may have heard that to symbolize their love forever, many couples carve their names on locks and attach them to a bridge. However, as the weight of the locks increases the pressure on bridges, they are no longer permitted. Even the existing ones have been removed since 2012. This law was also introduced in Venice so that locks could no longer damage the famous Rialto Bridge.</p>
+<p>some tourists’ actions caused severe damage to the city’s historical monuments. So, the city had to establish a number of laws to protect its numerous historical sites. One of them was to forbid adding a lock to any bridge in Rome. You may have heard that to symbolize their love forever, many couples carve their names on locks and attach them to a bridge. However, as the weight of the locks increases the pressure on bridges, they are no longer permitted. Even the existing ones have been removed since 2012. This law was also introduced in Venice so that locks could no longer damage the famous Rialto Bridge.</p>
 
         `,
         quiz: [
@@ -895,10 +865,6 @@ The era of Pointillism came to an end after the first half of the twentieth cent
     let vocabQuizScore = 0;
     let vocabQuizHistory = {};
     let vocabMode = 'card';
-    let vocabOrderMode = 'seq';   // 'seq' | 'rand'
-    let grammarOrderMode = 'seq'; // 'seq' | 'rand'
-    let _activeVocabList = null;  // 현재 사용 중인 단어 리스트 (순서 또는 셔플)
-    let _activeGrammarList = null; // 현재 사용 중인 문법 리스트
 
     window.changeLesson = function changeLesson() {
       currentLessonId = document.getElementById('lessonSelect').value;
@@ -907,10 +873,6 @@ The era of Pointillism came to an end after the first half of the twentieth cent
       currentVocabQuizIndex = 0;
       vocabQuizScore = 0;
       vocabQuizHistory = {};
-      // 레슨 변경 시 순서 관련 상태 초기화
-      _activeVocabList = null;
-      _activeGrammarList = null;
-      window._activeVocabList = null;
       openTab('vocab', document.querySelector('.tab-btn.active'));
       setVocabMode('card');
       renderGrammarGame();
@@ -1135,53 +1097,13 @@ The era of Pointillism came to an end after the first half of the twentieth cent
       if (activeBtn) activeBtn.classList.add('active');
       if (activeDiv) activeDiv.style.display = 'block';
 
-      vocabMode = mode;
-
-      // 순서/랜덤 토글: 카드와 뱃지를 제외한 게임 모드에서 리스트 생성
-      if (mode !== 'card' && mode !== 'badge') {
-        const base = lessons[currentLessonId].vocab;
-        _activeVocabList = vocabOrderMode === 'rand'
-          ? [...base].sort(() => Math.random() - 0.5)
-          : [...base];
-        window._activeVocabList = _activeVocabList; // 후속 스크립트 블록에서도 접근 가능
-      } else {
-        _activeVocabList = null;
-        window._activeVocabList = null;
-      }
-
       if (mode === 'card') { renderVocabCards(); }
       else if (mode === 'game') { currentVocabGameIndex = 0; renderVocabGame(); }
-      else if (mode === 'quiz') { currentVocabQuizIndex = 0; vocabQuizScore = 0; vocabQuizHistory = {}; renderVocabQuiz(); }
+      else if (mode === 'quiz') { currentVocabQuizIndex = 0; renderVocabQuiz(); }
       else if (mode === 'listen') { currentListenIndex = 0; renderListenMode(); }
       else if (mode === 'fill') { currentFillIndex = 0; renderFillMode(); }
       else if (mode === 'copy') { currentCopyIndex = 0; renderCopyMode(); }
       else if (mode === 'badge') { renderBadgeMode(); }
-    }
-
-    // 단어 순서 모드 변경
-    function setVocabOrder(mode) {
-      vocabOrderMode = mode;
-      const seqBtn = document.getElementById('btnVocabSeq');
-      const randBtn = document.getElementById('btnVocabRand');
-      if (seqBtn) seqBtn.classList.toggle('active', mode === 'seq');
-      if (randBtn) randBtn.classList.toggle('active', mode === 'rand');
-      // 현재 모드를 다시 시작 (인덱스 리셋)
-      setVocabMode(vocabMode);
-    }
-
-    // 문장 게임 순서 모드 변경
-    function setGrammarOrder(mode) {
-      grammarOrderMode = mode;
-      const seqBtn = document.getElementById('btnGramSeq');
-      const randBtn = document.getElementById('btnGramRand');
-      if (seqBtn) seqBtn.classList.toggle('active', mode === 'seq');
-      if (randBtn) randBtn.classList.toggle('active', mode === 'rand');
-      const base = lessons[currentLessonId].grammarPatterns;
-      _activeGrammarList = mode === 'rand'
-        ? [...base].sort(() => Math.random() - 0.5)
-        : [...base];
-      currentGrammarIndex = 0;
-      renderGrammarGame();
     }
 
     function renderVocabCards() {
@@ -1214,7 +1136,7 @@ The era of Pointillism came to an end after the first half of the twentieth cent
     }
 
     function renderVocabGame() {
-      const list = _activeVocabList || lessons[currentLessonId].vocab;
+      const list = lessons[currentLessonId].vocab;
       const container = document.getElementById("vocabGameArea");
       container.innerHTML = "";
       if(!list || list.length===0) { container.innerHTML="<p>데이터가 없습니다.</p>"; return; }
@@ -1251,22 +1173,19 @@ The era of Pointillism came to an end after the first half of the twentieth cent
     }
 
     function checkVocabAnswer() {
-      const list = _activeVocabList || lessons[currentLessonId].vocab;
+      const list = lessons[currentLessonId].vocab;
       const item = list[currentVocabGameIndex];
       const inputEl = document.getElementById("vInput");
       const msgEl = document.getElementById("vMsg");
-      if (!inputEl || !msgEl) return;
       const userVal = inputEl.value.trim().toLowerCase();
-      if (!userVal) return;
 
       if(userVal === item.word.toLowerCase()) {
         msgEl.innerHTML = "<span style='color:var(--success)'>정답! 🎉</span>";
         inputEl.style.borderColor = "var(--success)";
-        inputEl.disabled = true;
         speak(item.word);
         setTimeout(() => { currentVocabGameIndex++; renderVocabGame(); }, 1000);
       } else {
-        msgEl.innerHTML = `<span style='color:var(--accent)'>오답! 정답: <b>${item.word}</b> &nbsp;<button onclick="currentVocabGameIndex++;renderVocabGame();" style="background:#e2e8f0;border:none;border-radius:8px;padding:4px 12px;font-weight:700;cursor:pointer;font-size:0.9rem;">다음 ▶</button></span>`;
+        msgEl.innerHTML = `<span style='color:var(--accent)'>오답! 정답: ${item.word}</span>`;
         inputEl.style.borderColor = "var(--accent)";
       }
     }
@@ -1274,7 +1193,7 @@ The era of Pointillism came to an end after the first half of the twentieth cent
     function nextVocabGame() { currentVocabGameIndex++; renderVocabGame(); }
 
     function renderVocabQuiz() {
-      const list = _activeVocabList || lessons[currentLessonId].vocab;
+      const list = lessons[currentLessonId].vocab;
       const container = document.getElementById("vocabQuizArea");
       container.innerHTML = "";
       if(!list || list.length===0) { container.innerHTML="<p>데이터가 없습니다.</p>"; return; }
@@ -1357,18 +1276,13 @@ The era of Pointillism came to an end after the first half of the twentieth cent
     function prevVocabQuiz() { if(currentVocabQuizIndex > 0) { currentVocabQuizIndex--; renderVocabQuiz(); } }
 
     function speak(text) {
-      if (!window.speechSynthesis) return;
-      try {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'en-US';
-        u.rate = 0.85;
-        window.speechSynthesis.speak(u);
-      } catch(e) {}
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      window.speechSynthesis.speak(u);
     }
 
     function renderGrammarGame() {
-      const list = _activeGrammarList || lessons[currentLessonId].grammarPatterns;
+      const list = lessons[currentLessonId].grammarPatterns;
       const container = document.getElementById("grammarList");
       container.innerHTML = "";
       if(!list || list.length===0) { container.innerHTML="<p>데이터가 없습니다.</p>"; return; }
@@ -1418,47 +1332,23 @@ The era of Pointillism came to an end after the first half of the twentieth cent
 
     function moveWord(idx, word, btn, correctSentence) {
       const area = document.getElementById(`area-${idx}`);
-      const msgEl = document.getElementById(`msg-${idx}`);
-
-      // 이미 정답인 경우 추가 이동 막기
-      if (area.style.borderColor === 'var(--success)' || area.dataset.solved === '1') return;
-
       const newChip = document.createElement("span");
       newChip.className = "word-chip";
       newChip.innerText = word;
-      newChip.title = "클릭하면 되돌리기";
-      newChip.style.cursor = "pointer";
-
-      // 단어를 클릭하면 다시 word-bank로 돌려보내기
-      newChip.onclick = function() {
-        if (area.dataset.solved === '1') return; // 정답 후엔 고정
-        area.removeChild(newChip);
-        btn.classList.remove("used");
-        // 정답 표시 초기화
-        if (msgEl) msgEl.innerHTML = '';
-        area.style.borderColor = '';
-      };
-
       area.appendChild(newChip);
       btn.classList.add("used");
-
+      
       const currentSentence = Array.from(area.children).map(c => c.innerText).join('');
       const target = area.parentElement.dataset.answer;
       if(currentSentence === target) {
-        msgEl.innerHTML = "<span style='color:var(--success)'>Excellent! 🎉</span>";
+        document.getElementById(`msg-${idx}`).innerHTML = "<span style='color:var(--success)'>Excellent! 🎉</span>";
         area.style.borderColor = "var(--success)";
-        area.dataset.solved = '1'; // 정답 후 고정
-        // 정답 칩들 클릭 불가로 변경
-        Array.from(area.children).forEach(c => { c.style.cursor = 'default'; });
         speak(correctSentence);
       }
     }
 
     function prevGrammar() { if(currentGrammarIndex>0) { currentGrammarIndex--; renderGrammarGame(); } }
-    function nextGrammar() {
-      const list = _activeGrammarList || lessons[currentLessonId].grammarPatterns;
-      if(currentGrammarIndex < list.length-1) { currentGrammarIndex++; renderGrammarGame(); }
-    }
+    function nextGrammar() { if(currentGrammarIndex < lessons[currentLessonId].grammarPatterns.length-1) { currentGrammarIndex++; renderGrammarGame(); } }
 
     function resetQuiz() {
       quizData = lessons[currentLessonId].quiz;
@@ -2521,17 +2411,233 @@ window.basicVocab = [{"w":"abandon","p":"v","k":"포기하다"},{"w":"ability","
 
 </div>
 
-<!-- ===== [구문분석 필기 제거됨] ===== -->
+<!-- ===== 인라인 편집 모달 ===== -->
 <script>
-// 구문분석 필기 기능이 제거되었습니다.
-const SY_POS_LIST = [];
-const SY_POS_LABELS = {};
-const SY_POS_COLORS = {};
-function syClosePalette() {}
-function syOpenPalette() {}
-function syCardEdit() {}
-function syCardCancel() {}
-function syCardSave() {}
+// ===== 카드 인라인 편집 (비주얼 품사 편집 + 직독직해/노트) =====
+const SY_POS_LIST = ['S','V','VB','VM','O','C','M','CL','PP',''];
+const SY_POS_LABELS = {S:'주어',V:'동사',VB:'be동사',VM:'조동사',O:'목적어',C:'보어',M:'수식어',CL:'절',PP:'전명구',''  :'없음'};
+const SY_POS_COLORS = {
+  S:  {bg:'#dbeafe',col:'#1e40af'},
+  V:  {bg:'#fee2e2',col:'#991b1b'},
+  VB: {bg:'#fecaca',col:'#7f1d1d'},
+  VM: {bg:'#ffe4e6',col:'#be123c'},
+  O:  {bg:'#dcfce7',col:'#166534'},
+  C:  {bg:'#fef3c7',col:'#92400e'},
+  M:  {bg:'#f1f5f9',col:'#475569'},
+  CL: {bg:'#ede9fe',col:'#5b21b6'},
+  PP: {bg:'#fef9c3',col:'#713f12'},
+  '': {bg:'transparent',col:'#1e293b'}
+};
+
+// 팝업 팔레트 (전역 1개 재사용)
+let _syPalette = null;
+let _syPaletteTarget = null;
+
+function syGetPalette() {
+  if (_syPalette) return _syPalette;
+  const el = document.createElement('div');
+  el.id = 'syPosPalette';
+  el.style.cssText = 'position:fixed;z-index:99990;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.2);padding:8px;display:none;flex-wrap:wrap;gap:6px;max-width:240px;';
+  SY_POS_LIST.forEach(pos => {
+    const c = SY_POS_COLORS[pos];
+    const b = document.createElement('button');
+    b.dataset.pos = pos;
+    b.textContent = pos ? pos + ' ' + SY_POS_LABELS[pos] : '✕ 없음';
+    b.style.cssText = `background:${c.bg};color:${c.col};border:2px solid ${c.col};border-radius:7px;padding:5px 10px;font-size:13px;font-weight:700;cursor:pointer;`;
+    b.onclick = function(e) {
+      e.stopPropagation();
+      if (_syPaletteTarget) {
+        const span = _syPaletteTarget;
+        // 기존 품사 클래스 제거
+        SY_POS_LIST.filter(p=>p).forEach(p => span.classList.remove('sy-'+p));
+        if (pos) {
+          span.classList.add('sy-'+pos);
+          span.dataset.syPos = pos;
+        } else {
+          // 없음: 일반 텍스트 span
+          span.removeAttribute('class');
+          span.removeAttribute('data-sy-pos');
+        }
+      }
+      syClosePalette();
+    };
+    el.appendChild(b);
+  });
+  document.body.appendChild(el);
+  _syPalette = el;
+  document.addEventListener('click', function() { syClosePalette(); });
+  return el;
+}
+
+function syClosePalette() {
+  if (_syPalette) _syPalette.style.display = 'none';
+  _syPaletteTarget = null;
+}
+
+function syOpenPalette(span, e) {
+  e.stopPropagation();
+  const pal = syGetPalette();
+  _syPaletteTarget = span;
+  const r = span.getBoundingClientRect();
+  pal.style.display = 'flex';
+  // 위치: span 아래
+  let top = r.bottom + 6;
+  let left = r.left;
+  if (left + 240 > window.innerWidth) left = window.innerWidth - 248;
+  if (top + 200 > window.innerHeight) top = r.top - 140;
+  pal.style.top  = top  + 'px';
+  pal.style.left = left + 'px';
+}
+
+// 커서 위치에 텍스트 삽입
+function syInsert(textarea, text) {
+  const s = textarea.selectionStart;
+  const e = textarea.selectionEnd;
+  const v = textarea.value;
+  textarea.value = v.slice(0, s) + text + v.slice(e);
+  textarea.selectionStart = textarea.selectionEnd = s + text.length;
+  textarea.focus();
+}
+
+// 편집 모드: 영어 문장 span들을 탭하면 팔레트 바에서 선택
+let _sySelectedSpan = null;
+
+function syMakeEngEditable(engDiv, editArea) {
+  engDiv.querySelectorAll('span').forEach(span => {
+    span.style.cursor = 'pointer';
+    span.style.outline = '2px dashed rgba(124,58,237,0.3)';
+    span.onclick = function(e) {
+      e.stopPropagation();
+      // 이전 선택 해제
+      if (_sySelectedSpan) _sySelectedSpan.style.boxShadow = '';
+      _sySelectedSpan = span;
+      span.style.boxShadow = '0 0 0 3px #7c3aed';
+      // 힌트 업데이트
+      const hint = editArea.querySelector('.sy-pos-hint');
+      if (hint) hint.textContent = '✅ "' + span.textContent.trim() + '" 선택됨 → 아래 색상 버튼을 탭하세요';
+    };
+  });
+
+  // 팔레트 버튼 연결
+  const posBar = editArea.querySelector('.sy-pos-bar');
+  if (posBar) {
+    posBar.querySelectorAll('.sy-pos-pick').forEach(btn => {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        if (!_sySelectedSpan) {
+          const hint = editArea.querySelector('.sy-pos-hint');
+          if (hint) hint.textContent = '⚠️ 먼저 위의 영어 단어를 탭하세요';
+          return;
+        }
+        const pos = btn.dataset.pos;
+        SY_POS_LIST.filter(p => p).forEach(p => _sySelectedSpan.classList.remove('sy-' + p));
+        if (pos) _sySelectedSpan.classList.add('sy-' + pos);
+        _sySelectedSpan.style.boxShadow = '';
+        _sySelectedSpan.style.outline = '2px dashed rgba(124,58,237,0.3)';
+        const hint = editArea.querySelector('.sy-pos-hint');
+        if (hint) hint.textContent = '✅ ' + (pos ? btn.textContent.trim() : '색상 제거') + ' 적용 완료!';
+        _sySelectedSpan = null;
+      };
+    });
+  }
+}
+
+function syEngDivToHtml(engDiv) {
+  // engDiv 안에는 buildInterlinear가 만든:
+  //   <div style="1.05rem">영어 spans</div>
+  //   <div style="f0fdf4">📖 직독직해</div>  ← 이건 캡처 금지
+  // 첫 번째 div의 innerHTML(영어 spans)만 반환
+  const firstDiv = engDiv.querySelector(':scope > div:first-child');
+  if (firstDiv) return cleanEngHtml(firstDiv.innerHTML);
+  return cleanEngHtml(engDiv.innerHTML);
+}
+
+function syCardEdit(lesson, num, btn) {
+  const card = btn.closest('.sy-card');
+  const engView  = card.querySelector('.sy-eng-view');
+  const noteView = card.querySelector('.sy-note-view');
+  const editArea = card.querySelector('.sy-edit-area');
+  const data = window.syntaxAllData && window.syntaxAllData[lesson];
+  const item = data && data.find(d => d.num === num);
+  if (!item) return;
+
+  card.querySelector('.sy-edit-kr').value   = item.kr   || '';
+  card.querySelector('.sy-edit-note').value = item.note || '';
+  card.querySelector('.sy-edit-msg').textContent = '';
+
+  // 영어 문장 span 클릭 가능하게
+  _sySelectedSpan = null;
+  syMakeEngEditable(engView, editArea);
+
+  noteView.style.display = 'none';
+  editArea.style.display = 'block';
+  btn.textContent = '✏️ 편집 중...';
+  btn.disabled = true;
+
+  card.querySelector('.sy-edit-kr').focus();
+}
+
+function syCardCancel(lesson, num, btn) {
+  const card = btn.closest('.sy-card');
+  const engView = card.querySelector('.sy-eng-view');
+  // 편집 취소: 원본 html 복원
+  const data = window.syntaxAllData && window.syntaxAllData[lesson];
+  const item = data && data.find(d => d.num === num);
+  if (item) engView.innerHTML = item.html;
+
+  card.querySelector('.sy-note-view').style.display = '';
+  card.querySelector('.sy-edit-area').style.display = 'none';
+  const editBtn = card.querySelector('.sy-edit-btn');
+  if (editBtn) { editBtn.textContent = '✏️ 수정'; editBtn.disabled = false; }
+  syClosePalette();
+  _sySelectedSpan = null;
+}
+
+function syCardSave(lesson, num, btn) {
+  const card = btn.closest('.sy-card');
+  const engView = card.querySelector('.sy-eng-view');
+  const kr   = card.querySelector('.sy-edit-kr').value.trim();
+  const note = card.querySelector('.sy-edit-note').value.trim();
+  const html = syEngDivToHtml(engView);
+  const data = window.syntaxAllData && window.syntaxAllData[lesson];
+  const item = data && data.find(d => d.num === num);
+  if (!item) return;
+
+  item.kr   = kr;
+  item.note = note;
+  item.html = html;
+
+  // outline 제거 (저장 후 깔끔하게)
+  engView.querySelectorAll('span').forEach(s => {
+    s.style.outline = '';
+    s.style.cursor  = '';
+    s.onclick = null;
+  });
+
+  // localStorage 저장
+  try {
+    const saves = {};
+    ['L1','L2','L3','L4','L5','L6'].forEach(lid => {
+      const d = window.syntaxAllData[lid];
+      if (d) saves[lid] = d.map(i => ({ num:i.num, kr:i.kr, note:i.note, html:i.html }));
+    });
+    localStorage.setItem('_synEdits', JSON.stringify(saves));
+  } catch(e) {}
+
+  const msg = card.querySelector('.sy-edit-msg');
+  msg.style.color = '#10b981';
+  msg.textContent = '✅ 저장 완료!';
+  syClosePalette();
+
+  setTimeout(() => {
+    const cur = document.getElementById('lessonSelect')?.value;
+    if (cur === lesson && typeof renderSyntaxAnalysis === 'function') {
+      renderSyntaxAnalysis();
+    } else {
+      syCardCancel(lesson, num, btn);
+    }
+  }, 800);
+}
 </script>
 
 <!-- ===== 개념 바텀시트 ===== -->
@@ -3759,8 +3865,9 @@ window.aipCloseSheet = function() {
     const num = parseInt(document.getElementById('aipSynNum').value);
     if (!aipSynOriginal[lesson] || !aipSynOriginal[lesson][num]) return;
     const orig = aipSynOriginal[lesson][num];
-    const data = window.syntaxAllData && window.syntaxAllData[lesson];
-    const item = data && data.find(d => d.num === num);
+    const data = window.syntaxAllData[lesson];
+        const data = window.syntaxAllData && window.syntaxAllData[lesson];
+        const item = data && data.find(d => d.num === num);
     document.getElementById('aipSynKr').value = orig.kr;
     document.getElementById('aipSynNote').value = orig.note;
     aipCurrentChips = aipParseHtmlToChips(orig.html);
@@ -4618,8 +4725,6 @@ window.closePosPopup = function(e) {
 
   // ===== 유틸 =====
   function getLessonVocab() {
-    // 순서/랜덤 모드가 적용된 리스트가 있으면 그것을 사용
-    if (window._activeVocabList && window._activeVocabList.length > 0) return window._activeVocabList;
     const data = window.lessons || lessons;
     const lid = typeof currentLessonId !== 'undefined' ? currentLessonId : 'L1';
     return data[lid].vocab;
@@ -4634,44 +4739,42 @@ window.closePosPopup = function(e) {
   }
 
   // ===== 🔊 듣고 고르기 =====
+  let currentListenIndex = 0;
   window.currentListenIndex = 0;
-
-  window.listenNext = function() { window.currentListenIndex++; window.renderListenMode(); };
-  window.listenRestart = function() { window.currentListenIndex = 0; window.renderListenMode(); };
 
   window.renderListenMode = function() {
     const vocab = getLessonVocab();
     const container = document.getElementById('vocabListenArea');
     if (!container) return;
-    const idx = window.currentListenIndex;
-    if (idx >= vocab.length) {
+    if (currentListenIndex >= vocab.length) {
       container.innerHTML = `<div class="bg-game-box">
         ${makeProgress(vocab.length, vocab.length, '#7c3aed')}
         <div style="font-size:2.5rem;margin-bottom:16px;">🎉</div>
         <div style="font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:8px;">모두 완료!</div>
         <div style="color:#64748b;margin-bottom:24px;">총 ${vocab.length}개 단어를 들었어요!</div>
-        <button class="bg-next-btn" style="display:inline-block;" onclick="listenRestart()">🔄 다시 하기</button>
+        <button class="bg-next-btn" style="display:inline-block;" onclick="currentListenIndex=0;renderListenMode()">🔄 다시 하기</button>
       </div>`;
       return;
     }
-    const item = vocab[idx];
-    const others = shuffle(vocab.filter((_,i)=>i!==idx)).slice(0,3);
+    const item = vocab[currentListenIndex];
+    const others = shuffle(vocab.filter((_,i)=>i!==currentListenIndex)).slice(0,3);
     const choices = shuffle([item, ...others]);
 
     container.innerHTML = `<div class="bg-game-box">
-      ${makeProgress(idx, vocab.length, '#7c3aed')}
+      ${makeProgress(currentListenIndex, vocab.length, '#7c3aed')}
       <span class="bg-listen-icon" onclick="speakWord('${item.word.replace(/'/g,"\\'")}')">🔊</span>
       <div class="bg-listen-hint">위 아이콘을 눌러 단어를 들어보세요</div>
       <div style="font-size:0.95rem;color:#475569;margin-bottom:20px;font-weight:600;">들은 단어의 <b>한국어 뜻</b>을 고르세요</div>
       <div class="bg-choices">
         ${choices.map(c=>`
-          <button class="bg-choice-btn" onclick="checkListenAnswer(this,'${c.word.replace(/'/g,"\\'")}','${item.word.replace(/'/g,"\\'")}','${item.meaningKo.replace(/'/g,"\\'")}')">
+          <button class="bg-choice-btn" onclick="checkListenAnswer(this,'${c.word}','${item.word}','${item.meaningKo}')">
             <span style="font-size:1.3rem;">🔵</span> ${c.meaningKo}
           </button>`).join('')}
       </div>
       <div class="bg-result-msg" id="listenMsg"></div>
-      <button class="bg-next-btn" id="listenNext" onclick="listenNext()">다음 →</button>
+      <button class="bg-next-btn" id="listenNext" onclick="currentListenIndex++;renderListenMode()">다음 →</button>
     </div>`;
+    // 자동 재생
     setTimeout(()=>speakWord(item.word), 400);
   };
 
@@ -4687,6 +4790,7 @@ window.closePosPopup = function(e) {
       ? `<span style="color:#16a34a;">✅ 정답! "${correct}" = ${meaningKo}</span>`
       : `<span style="color:#dc2626;">❌ 정답은 "${correct}" = ${meaningKo}</span>`;
     document.getElementById('listenNext').style.display = 'inline-block';
+    addXP('listen', isCorrect);
   };
 
   window.speakWord = function(word) {
@@ -4701,45 +4805,45 @@ window.closePosPopup = function(e) {
   };
 
   // ===== 🖊️ 빈칸 채우기 =====
+  let currentFillIndex = 0;
   window.currentFillIndex = 0;
-  window.fillRestart = function() { window.currentFillIndex = 0; window.renderFillMode(); };
-  window.fillNext = function() { window.currentFillIndex++; window.renderFillMode(); };
 
   window.renderFillMode = function() {
     const vocab = getLessonVocab();
     const container = document.getElementById('vocabFillArea');
     if (!container) return;
-    const idx = window.currentFillIndex;
-    if (idx >= vocab.length) {
+    if (currentFillIndex >= vocab.length) {
       container.innerHTML = `<div class="bg-game-box">
         ${makeProgress(vocab.length, vocab.length, '#0891b2')}
         <div style="font-size:2.5rem;margin-bottom:16px;">🎉</div>
         <div style="font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:8px;">모두 완료!</div>
-        <button class="bg-next-btn" style="display:inline-block;" onclick="fillRestart()">🔄 다시 하기</button>
+        <button class="bg-next-btn" style="display:inline-block;" onclick="currentFillIndex=0;renderFillMode()">🔄 다시 하기</button>
       </div>`;
       return;
     }
-    const item = vocab[idx];
+    const item = vocab[currentFillIndex];
     const word = item.word;
-    const hint = word[0];
+    const hint = word[0]; // 첫 글자 힌트
+
+    // 단어를 글자 박스로 표시 (첫 글자만 보임)
     const letters = word.split('').map((ch,i)=>{
       if (i===0) return `<div class="fill-letter hint">${ch}</div>`;
       return `<div class="fill-letter blank">_</div>`;
     }).join('');
 
     container.innerHTML = `<div class="bg-game-box">
-      ${makeProgress(idx, vocab.length, '#0891b2')}
+      ${makeProgress(currentFillIndex, vocab.length, '#0891b2')}
       <div class="bg-main-ko">${item.meaningKo}</div>
       <div style="font-size:0.9rem;color:#94a3b8;margin-bottom:16px;">품사: ${posBadgeHTML(item.pos)}</div>
       <div class="fill-word-display" id="fillLetters">${letters}</div>
       <div style="font-size:0.85rem;color:#7c3aed;margin-bottom:14px;">💡 첫 글자 힌트: <b>${hint}</b> (총 ${word.length}글자)</div>
       <input class="fill-input" id="fillInput" placeholder="${hint}..." maxlength="${word.length+3}"
-        oninput="fillPreview(this.value,'${word.replace(/'/g,"\\'")}')"
-        onkeydown="if(event.key==='Enter')checkFillAnswer('${word.replace(/'/g,"\\'")}','${item.meaningKo.replace(/'/g,"\\'")}')">
+        oninput="fillPreview(this.value,'${word}')"
+        onkeydown="if(event.key==='Enter')checkFillAnswer('${word}','${item.meaningKo}')">
       <br>
-      <button class="fill-submit-btn" onclick="checkFillAnswer('${word.replace(/'/g,"\\'")}','${item.meaningKo.replace(/'/g,"\\'")}')">확인 ✓</button>
+      <button class="fill-submit-btn" onclick="checkFillAnswer('${word}','${item.meaningKo}')">확인 ✓</button>
       <div class="bg-result-msg" id="fillMsg"></div>
-      <button class="bg-next-btn" id="fillNext" onclick="fillNext()">다음 →</button>
+      <button class="bg-next-btn" id="fillNext" onclick="currentFillIndex++;renderFillMode()">다음 →</button>
     </div>`;
     document.getElementById('fillInput').focus();
   };
@@ -4774,30 +4878,28 @@ window.closePosPopup = function(e) {
   };
 
   // ===== 📋 보고 베끼기 =====
+  let currentCopyIndex = 0;
   window.currentCopyIndex = 0;
-  window.copyRestart = function() { window.currentCopyIndex = 0; window.renderCopyMode(); };
-  window.copyNext = function() { window.currentCopyIndex++; window.renderCopyMode(); };
 
   window.renderCopyMode = function() {
     const vocab = getLessonVocab();
     const container = document.getElementById('vocabCopyArea');
     if (!container) return;
-    const idx = window.currentCopyIndex;
-    if (idx >= vocab.length) {
+    if (currentCopyIndex >= vocab.length) {
       container.innerHTML = `<div class="bg-game-box">
         ${makeProgress(vocab.length, vocab.length, '#059669')}
         <div style="font-size:2.5rem;margin-bottom:16px;">🎉</div>
         <div style="font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:8px;">모두 완료!</div>
-        <button class="bg-next-btn" style="display:inline-block;" onclick="copyRestart()">🔄 다시 하기</button>
+        <button class="bg-next-btn" style="display:inline-block;" onclick="currentCopyIndex=0;renderCopyMode()">🔄 다시 하기</button>
       </div>`;
       return;
     }
-    const item = vocab[idx];
+    const item = vocab[currentCopyIndex];
     const word = item.word;
     const charBoxes = word.split('').map(()=>`<span class="copy-char empty">_</span>`).join('');
 
     container.innerHTML = `<div class="bg-game-box">
-      ${makeProgress(idx, vocab.length, '#059669')}
+      ${makeProgress(currentCopyIndex, vocab.length, '#059669')}
       <div style="font-size:0.9rem;color:#6b7280;margin-bottom:10px;">아래 단어를 보고 그대로 입력하세요</div>
       <div class="copy-target" onclick="speakWord('${word.replace(/'/g,"\\'")}')">
         ${word} <span style="font-size:1rem;">🔊</span>
@@ -4806,12 +4908,12 @@ window.closePosPopup = function(e) {
       <div id="copyCharBoxes" style="margin-bottom:20px;letter-spacing:2px;">${charBoxes}</div>
       <input class="copy-input" id="copyInput" placeholder="여기에 입력하세요..."
         maxlength="${word.length+5}"
-        oninput="copyPreview(this.value,'${word.replace(/'/g,"\\'")}')"
-        onkeydown="if(event.key==='Enter')checkCopyAnswer('${word.replace(/'/g,"\\'")}','${item.meaningKo.replace(/'/g,"\\'")}')">
+        oninput="copyPreview(this.value,'${word}')"
+        onkeydown="if(event.key==='Enter')checkCopyAnswer('${word}','${item.meaningKo}')">
       <br>
-      <button class="fill-submit-btn" style="background:linear-gradient(135deg,#059669,#047857);" onclick="checkCopyAnswer('${word.replace(/'/g,"\\'")}','${item.meaningKo.replace(/'/g,"\\'")}')">확인 ✓</button>
+      <button class="fill-submit-btn" style="background:linear-gradient(135deg,#059669,#047857);" onclick="checkCopyAnswer('${word}','${item.meaningKo}')">확인 ✓</button>
       <div class="bg-result-msg" id="copyMsg"></div>
-      <button class="bg-next-btn" id="copyNext" onclick="copyNext()">다음 →</button>
+      <button class="bg-next-btn" id="copyNext" onclick="currentCopyIndex++;renderCopyMode()">다음 →</button>
     </div>`;
     document.getElementById('copyInput').focus();
   };
@@ -4881,9 +4983,9 @@ window.closePosPopup = function(e) {
   const _origChangeLesson = window.changeLesson;
   window.changeLesson = function() {
     if (typeof _origChangeLesson === 'function') _origChangeLesson();
-    window.currentListenIndex = 0;
-    window.currentFillIndex = 0;
-    window.currentCopyIndex = 0;
+    currentListenIndex = 0;
+    currentFillIndex = 0;
+    currentCopyIndex = 0;
   };
 
 })();
@@ -5084,7 +5186,39 @@ window.closePosPopup = function(e) {
   </div>
 </div>
 
-<div id="syEditModal" style="display:none;"></div>
+<div id="syEditModal" style="display:none;position:fixed;inset:0;z-index:99000;background:rgba(0,0,0,0.55);padding:20px;box-sizing:border-box;overflow-y:auto;">
+  <div style="max-width:640px;margin:40px auto;background:#fff;border-radius:16px;padding:24px;box-shadow:0 10px 40px rgba(0,0,0,0.3);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+      <div style="font-size:1.1rem;font-weight:800;color:#1e293b;">✏️ 구문 수정 <span id="syEditLabel" style="font-size:0.9rem;color:#64748b;font-weight:500;"></span></div>
+      <button onclick="closeSyEditModal()" style="background:#f1f5f9;border:none;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:14px;color:#475569;">✕ 닫기</button>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+      <div style="font-size:0.8rem;font-weight:700;color:#1d4ed8;">📌 영어 문장 <span style="font-size:0.72rem;color:#94a3b8;font-weight:400;">(HTML 태그 포함 편집 가능)</span></div>
+      <button onclick="syEditEngPreviewRefresh()" style="font-size:0.78rem;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;border-radius:6px;padding:3px 10px;cursor:pointer;font-weight:700;">👁 미리보기 새로고침</button>
+    </div>
+    <textarea id="syEditHtml" rows="3"
+      style="width:100%;box-sizing:border-box;border:1px solid #bfdbfe;border-radius:8px;padding:10px;font-size:0.82rem;line-height:1.6;resize:vertical;font-family:monospace;background:#eff6ff;margin-bottom:6px;"
+      oninput="syEditEngPreviewRefresh()"></textarea>
+    <div style="font-size:0.75rem;font-weight:700;color:#64748b;margin-bottom:4px;">미리보기</div>
+    <div id="syEditEngPreview" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;font-size:0.92rem;line-height:2;margin-bottom:16px;"></div>
+
+    <label style="font-size:0.82rem;font-weight:700;color:#166534;display:block;margin-bottom:4px;">📖 직독직해</label>
+    <textarea id="syEditKr" rows="2"
+      style="width:100%;box-sizing:border-box;border:1px solid #bbf7d0;border-radius:8px;padding:10px;font-size:0.9rem;line-height:1.7;resize:vertical;font-family:inherit;background:#f0fdf4;"></textarea>
+
+    <label style="font-size:0.82rem;font-weight:700;color:#7c3aed;display:block;margin:14px 0 4px;">📖 문법/해석 노트</label>
+    <div style="font-size:0.72rem;color:#94a3b8;margin-bottom:6px;">§§ 로 블록 구분 | §§📚§ 어휘 | §§🔍§ 해석팁 | 각 항목은 | 로 구분</div>
+    <textarea id="syEditNote" rows="8"
+      style="width:100%;box-sizing:border-box;border:1px solid #ddd6fe;border-radius:8px;padding:10px;font-size:0.85rem;line-height:1.8;resize:vertical;font-family:monospace;background:#faf5ff;"></textarea>
+
+    <div style="display:flex;gap:10px;margin-top:18px;align-items:center;">
+      <button onclick="saveSyEditModal()" style="flex:1;background:#7c3aed;color:#fff;border:none;border-radius:10px;padding:12px;font-size:1rem;font-weight:700;cursor:pointer;">💾 저장</button>
+      <button onclick="closeSyEditModal()" style="background:#f1f5f9;color:#475569;border:none;border-radius:10px;padding:12px 20px;font-size:0.9rem;cursor:pointer;">취소</button>
+    </div>
+    <div id="syEditMsg" style="margin-top:10px;font-size:0.88rem;text-align:center;height:18px;"></div>
+  </div>
+</div>
 
 <script>
 (function() {
