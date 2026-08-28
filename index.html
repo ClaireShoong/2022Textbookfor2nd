@@ -5,14 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>영어Ⅱ (조수경) Lesson 1–4·6 학생용</title>
 <style>
-    /* [스타일 시트 - Standard Format] */
+    /* [스타일 시트 - Minimal Format] */
     :root {
-      --primary: #2563eb;       
-      --primary-dark: #1e40af;
-      --bg-color: #f8fafc;      
-      --text-main: #0f172a;
-      --accent: #ef4444;        
-      --success: #10b981;       
+      --primary: #3F6B54;
+      --primary-dark: #2C4E3D;
+      --bg-color: #F6F7F4;
+      --text-main: #20261F;
+      --accent: #B9793C;
+      --success: #3F8F5F;
+      --surface: #FFFFFF;
+      --surface-soft: #EFF1EC;
+      --border: #DEE3DC;
+      --ink-soft: #63706A;
+      --primary-soft: #E4EDE7;
+      --accent-soft: #F5E9D9;
+      --success-soft: #E3F1E8;
+      --error: #B4514B;
+      --error-soft: #F6E4E2;
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+      --shadow-sm: 0 1px 2px rgba(32,38,35,.06);
+      --shadow-md: 0 4px 14px rgba(32,38,35,.08);
     }
 
     * { box-sizing: border-box; }
@@ -24,29 +38,29 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       margin: 0; padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 1.5rem;
+      background: var(--surface);
+      color: var(--text-main);
+      padding: 1.4rem 1.5rem 1.6rem;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-      border-radius: 0 0 25px 25px;
+      border-bottom: 1px solid var(--border);
+      border-radius: 0;
     }
 
-    h1 { margin: 0 0 15px 0; font-size: 1.8rem; letter-spacing: -0.5px; }
+    h1 { margin: 0 0 6px 0; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.3px; color: var(--primary-dark); }
 
     .lesson-selector {
-      padding: 12px 25px;
-      font-size: 1.1rem;
-      border-radius: 25px;
-      border: 2px solid rgba(255,255,255,0.5);
-      background: rgba(255,255,255,0.2);
-      color: white;
-      font-weight: bold;
+      padding: 11px 20px;
+      font-size: 1rem;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text-main);
+      font-weight: 600;
       cursor: pointer;
-      backdrop-filter: blur(5px);
       outline: none;
       width: 95%;
       max-width: 1600px;
@@ -57,70 +71,70 @@
 
     .tabs {
       display: flex;
-      gap: 12px;
-      margin-bottom: 25px;
+      gap: 8px;
+      margin-bottom: 20px;
       overflow-x: auto;
-      padding-bottom: 5px;
+      padding-bottom: 4px;
     }
 
     .tab-btn {
       flex: 1;
-      padding: 14px;
-      background: white;
-      border: 2px solid #e2e8f0;
-      border-radius: 15px;
+      padding: 12px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
       font-weight: 700;
-      color: #64748b;
+      color: var(--text-main);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.15s ease;
       white-space: nowrap;
-      min-width: 170px;
-      font-size: 1rem;
+      min-width: 150px;
+      font-size: 0.95rem;
     }
 
     .tab-btn.active {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.2);
+      transform: none;
+      box-shadow: var(--shadow-sm);
     }
 
     .content-section { display: none; }
-    .content-section.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+    .content-section.active { display: block; animation: fadeIn 0.25s ease-in-out; }
     
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .mode-switch-box {
-      display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
     }
     .mode-btn {
-      padding: 8px 16px; border-radius: 20px; border: 2px solid var(--primary);
-      background: transparent; color: var(--primary); font-weight: bold; cursor: pointer;
-      transition: all 0.2s; font-size: 0.95rem;
+      padding: 8px 15px; border-radius: 999px; border: 1.5px solid var(--border);
+      background: var(--surface); color: var(--text-main); font-weight: 600; cursor: pointer;
+      transition: all 0.15s ease; font-size: 0.9rem;
     }
-    .mode-btn.active { background: var(--primary); color: white; }
+    .mode-btn.active { background: var(--primary-soft); color: var(--primary-dark); border-color: var(--primary); }
 
     .flashcard-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
     }
     .flashcard {
       background: transparent;
-      height: 200px;
+      height: 180px;
       perspective: 1000px;
       cursor: pointer;
     }
     .card-inner {
       position: relative; width: 100%; height: 100%;
-      text-align: center; transition: transform 0.6s;
+      text-align: center; transition: transform 0.5s;
       transform-style: preserve-3d;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-lg);
     }
     .flashcard.flipped .card-inner { transform: rotateY(180deg); }
     
@@ -129,410 +143,378 @@
       backface-visibility: hidden;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      border-radius: 20px; padding: 20px;
+      border-radius: var(--radius-lg); padding: 18px;
     }
-    .card-front { background: white; color: var(--text-main); border: 2px solid #e2e8f0; }
-    .card-back { background: var(--primary); color: white; transform: rotateY(180deg); border: 2px solid var(--primary); }
+    .card-front { background: var(--surface); color: var(--text-main); border: 1.5px solid var(--border); }
+    .card-back { background: var(--primary); color: white; transform: rotateY(180deg); border: 1.5px solid var(--primary); }
     
-    .card-word { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; color: var(--primary-dark); }
-    .card-pos { font-size: 0.9rem; background: #dbeafe; color: var(--primary-dark); padding: 4px 10px; border-radius: 12px; font-weight: bold; }
-    .card-meaning { font-size: 1.4rem; font-weight: bold; margin-bottom: 15px; }
+    .card-word { font-size: 1.45rem; font-weight: 800; margin-bottom: 8px; color: var(--primary-dark); }
+    .card-pos { font-size: 0.82rem; background: var(--primary-soft); color: var(--primary-dark); padding: 3px 10px; border-radius: 999px; font-weight: 700; }
+    .card-meaning { font-size: 1.25rem; font-weight: bold; margin-bottom: 12px; }
     
     .audio-btn {
-      position: absolute; top: 15px; right: 15px;
-      background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 50%;
-      font-size: 1.2rem; cursor: pointer; z-index: 10;
+      position: absolute; top: 12px; right: 12px;
+      background: var(--surface-soft); border: 1px solid var(--border); width: 32px; height: 32px; border-radius: 50%;
+      font-size: 1.05rem; cursor: pointer; z-index: 10;
       display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
     }
-    .audio-btn:hover { background: #dbeafe; transform: scale(1.1); }
+    .audio-btn:hover { background: var(--primary-soft); }
 
     .vocab-game-box {
-      background: white; padding: 40px; border-radius: 20px; text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+      background: var(--surface); padding: 32px; border-radius: var(--radius-lg); text-align: center;
+      box-shadow: var(--shadow-sm); border: 1px solid var(--border);
       max-width: 600px; margin: 0 auto;
     }
-    .v-game-meaning { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; color: var(--text-main); }
-    .v-game-hint { font-size: 1rem; color: #64748b; margin-bottom: 25px; background: #f1f5f9; display: inline-block; padding: 8px 20px; border-radius: 10px; }
+    .v-game-meaning { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main); }
+    .v-game-hint { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 20px; background: var(--surface-soft); display: inline-block; padding: 6px 16px; border-radius: var(--radius-sm); }
     
     .hint-btn {
-      background: #fffbeb; color: #b45309; border: 2px solid #fcd34d;
-      padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 0.95rem;
-      cursor: pointer; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;
-      transition: all 0.2s;
+      background: var(--accent-soft); color: var(--accent); border: 1.5px solid var(--accent);
+      padding: 7px 14px; border-radius: 999px; font-weight: bold; font-size: 0.9rem;
+      cursor: pointer; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 6px;
+      transition: background 0.15s;
     }
-    .hint-btn:hover { background: #fef3c7; transform: scale(1.05); }
+    .hint-btn:hover { background: #EFDCC0; }
 
     .v-game-input {
-      font-size: 1.5rem; padding: 10px; width: 80%; border: none; border-bottom: 3px solid #cbd5e1;
-      text-align: center; margin-bottom: 20px; outline: none; font-weight: bold; color: var(--primary);
+      font-size: 1.35rem; padding: 8px; width: 80%; border: none; border-bottom: 2.5px solid var(--border);
+      text-align: center; margin-bottom: 18px; outline: none; font-weight: bold; color: var(--primary-dark);
+      background: transparent;
     }
     .v-game-input:focus { border-bottom-color: var(--primary); }
     
     .quiz-choice-btn {
-      display: block; width: 100%; padding: 15px; margin: 8px 0;
-      border: 2px solid #e2e8f0; border-radius: 12px;
-      background: white; font-size: 1.1rem; cursor: pointer;
-      transition: all 0.2s; text-align: center; font-weight: 600; color: #475569;
-      min-height: 52px; -webkit-tap-highlight-color: transparent;
+      display: block; width: 100%; padding: 14px; margin: 7px 0;
+      border: 1.5px solid var(--border); border-radius: var(--radius-md);
+      background: var(--surface); font-size: 1.05rem; cursor: pointer;
+      transition: all 0.15s; text-align: center; font-weight: 600; color: var(--text-main);
+      min-height: 48px; -webkit-tap-highlight-color: transparent;
     }
-    .quiz-choice-btn:hover { background: #dbeafe; border-color: var(--primary); color: var(--primary-dark); }
-    .quiz-choice-btn.correct { background: #dcfce7; border-color: var(--success); color: #166534; }
-    .quiz-choice-btn.wrong { background: #fee2e2; border-color: var(--accent); color: #991b1b; }
+    .quiz-choice-btn:hover { background: var(--primary-soft); border-color: var(--primary); color: var(--primary-dark); }
+    .quiz-choice-btn.correct { background: var(--success-soft); border-color: var(--success); color: #245C3C; }
+    .quiz-choice-btn.wrong { background: var(--error-soft); border-color: var(--error); color: #7A362F; }
 
-    .v-game-msg { height: 30px; font-size: 1.2rem; font-weight: bold; margin-top: 10px; }
+    .v-game-msg { height: 28px; font-size: 1.05rem; font-weight: bold; margin-top: 8px; }
 
     .scramble-game {
-      background: white; padding: 25px; border-radius: 20px;
-      margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+      background: var(--surface); padding: 22px; border-radius: var(--radius-lg);
+      margin-bottom: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border);
     }
-    .game-header { margin-bottom: 15px; text-align: center; }
+    .game-header { margin-bottom: 14px; text-align: center; }
     .game-meaning { 
-      font-size: 1.1rem; font-weight: 800; color: var(--primary-dark); 
-      margin-bottom: 8px; background: #dbeafe; display: inline-block; 
-      padding: 8px 18px; border-radius: 15px; line-height: 1.4;
+      font-size: 1.05rem; font-weight: 800; color: var(--primary-dark); 
+      margin-bottom: 8px; background: var(--primary-soft); display: inline-block; 
+      padding: 7px 16px; border-radius: var(--radius-sm); line-height: 1.4;
     }
     .scramble-area {
-      min-height: 70px; border: 3px dashed #cbd5e1; border-radius: 15px;
-      display: flex; flex-wrap: wrap; gap: 10px; padding: 15px;
-      margin-bottom: 20px; background: #f8fafc; align-items: center; justify-content: center;
+      min-height: 64px; border: 2px dashed var(--border); border-radius: var(--radius-md);
+      display: flex; flex-wrap: wrap; gap: 9px; padding: 14px;
+      margin-bottom: 18px; background: var(--surface-soft); align-items: center; justify-content: center;
     }
-    .word-bank { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .word-bank { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
     .word-chip {
-      background: white; border: 2px solid var(--primary); color: var(--primary);
-      padding: 10px 18px; border-radius: 25px; font-weight: bold; font-size: 1rem;
-      cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      background: var(--surface); border: 1.5px solid var(--primary); color: var(--primary-dark);
+      padding: 9px 16px; border-radius: 999px; font-weight: bold; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.15s; box-shadow: var(--shadow-sm);
     }
-    .word-chip:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+    .word-chip:hover { background: var(--primary); color: white; transform: translateY(-2px); }
     .word-chip.used { opacity: 0; pointer-events: none; transform: scale(0.8); }
-    .scramble-msg { text-align: center; margin-top: 10px; font-weight: 800; font-size: 1.1rem; height: 30px; }
+    .scramble-msg { text-align: center; margin-top: 8px; font-weight: 800; font-size: 1.02rem; height: 28px; }
     .reset-game-btn { 
-      display: block; margin: 15px auto 0; padding: 10px 25px; 
-      background: #94a3b8; color: white; border:none; border-radius:10px; cursor: pointer; 
+      display: block; margin: 14px auto 0; padding: 9px 22px; 
+      background: var(--surface-soft); color: var(--text-main); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer;
+      font-weight: 600;
     }
 
     .reading-box {
-      background: white; padding: 40px; border-radius: 20px;
-      line-height: 2.1; font-size: 1.1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+      background: var(--surface); padding: 32px; border-radius: var(--radius-lg);
+      line-height: 2; font-size: 1.05rem;
+      box-shadow: var(--shadow-sm); border: 1px solid var(--border);
     }
-    .reading-box h3 { color: var(--primary); border-bottom: 3px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 25px; font-size: 1.5rem; }
+    .reading-box h3 { color: var(--primary-dark); border-bottom: 2px solid var(--border); padding-bottom: 12px; margin-bottom: 20px; font-size: 1.3rem; }
     .reading-box h4 { 
-      background: #f0f9ff; color: var(--primary-dark); 
-      padding: 10px 15px; border-radius: 8px; border-left: 5px solid var(--primary);
-      margin-top: 40px; margin-bottom: 15px;
+      background: var(--primary-soft); color: var(--primary-dark); 
+      padding: 9px 14px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary);
+      margin-top: 32px; margin-bottom: 14px;
     }
     
     .quiz-card {
-      background: white; padding: 30px; border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;
-      max-width: 650px; margin: 0 auto; border: 1px solid #e2e8f0;
+      background: var(--surface); padding: 26px; border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm); text-align: center;
+      max-width: 640px; margin: 0 auto; border: 1px solid var(--border);
     }
     .quiz-options button {
-      width: 100%; margin: 8px 0; padding: 18px;
-      border: 2px solid #e2e8f0; border-radius: 12px;
-      background: white; font-size: 1.05rem; cursor: pointer; transition: all 0.2s; font-weight: 500;
+      width: 100%; margin: 7px 0; padding: 16px;
+      border: 1.5px solid var(--border); border-radius: var(--radius-md);
+      background: var(--surface); font-size: 1rem; cursor: pointer; transition: all 0.15s; font-weight: 500;
+      color: var(--text-main);
     }
-    .quiz-options button:hover { border-color: var(--primary); background: #dbeafe; color: var(--primary-dark); }
+    .quiz-options button:hover { border-color: var(--primary); background: var(--primary-soft); color: var(--primary-dark); }
     
-    .nav-box { display: flex; justify-content: space-between; margin-top: 20px; }
+    .nav-box { display: flex; justify-content: space-between; margin-top: 18px; }
     .nav-btn {
-      padding: 10px 20px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; font-size: 1rem;
-      transition: all 0.2s;
+      padding: 9px 18px; border-radius: var(--radius-sm); border: none; font-weight: bold; cursor: pointer; font-size: 0.95rem;
+      transition: opacity 0.15s;
     }
-    .nav-btn.prev { background: #e2e8f0; color: #475569; }
+    .nav-btn.prev { background: var(--surface-soft); color: var(--text-main); }
     .nav-btn.next { background: var(--primary); color: white; }
-    .nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .nav-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
-/* [새로 추가된 Reading TTS 스타일] */
+/* [Reading TTS 스타일] */
     .read-btn {
-      background: #eff6ff;
-      border: 1px solid var(--primary);
-      color: var(--primary);
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      color: var(--primary-dark);
       border-radius: 50%;
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       cursor: pointer;
-      font-size: 1rem;
-      margin-right: 10px;
+      font-size: 0.9rem;
+      margin-right: 8px;
       vertical-align: middle;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s;
+      transition: all 0.15s;
     }
     .read-btn:hover {
       background: var(--primary);
       color: white;
-      transform: scale(1.1);
+      border-color: var(--primary);
     }
     /* 읽고 있는 문단 강조 효과 */
     .reading-highlight {
-      background-color: #e0f2fe; /* 연한 파란색 배경 */
-      border-radius: 8px;
+      background-color: var(--primary-soft);
+      border-radius: var(--radius-sm);
       transition: background-color 0.3s;
-      padding: 5px; /* 약간의 여백 */
+      padding: 4px;
     }
 .tip-box {
-      background: #f0f9ff;
-      border-left: 5px solid var(--primary);
-      padding: 15px 20px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 20px;
-      font-size: 0.95rem;
-      color: #334155;
+      background: var(--surface-soft);
+      border-left: 4px solid var(--primary);
+      padding: 13px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
     }
-
   </style>
 
 <style id="studentFriendly">
-  :root {
-    --primary: #3b82f6;
-    --primary-dark: #1d4ed8;
-    --bg-color: #eef6ff;
-    --text-main: #0f172a;
-  }
   body {
-    background:
-      radial-gradient(circle at 12% 0%, rgba(125,211,252,.45), transparent 32%),
-      radial-gradient(circle at 88% 8%, rgba(167,243,208,.35), transparent 28%),
-      linear-gradient(180deg, #eef6ff 0%, #f8fafc 60%, #eef2ff 100%);
+    background: var(--bg-color);
   }
   header {
-    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 45%, #0ea5e9 100%);
-    padding: 1.15rem 1rem 1.25rem;
-    border-radius: 0 0 28px 28px;
+    padding: 1.3rem 1.2rem 1.4rem;
   }
-  h1 { font-size: 1.42rem; font-weight: 900; margin: 0 0 6px; }
+  h1 { font-size: 1.5rem; font-weight: 800; margin: 0 0 6px; }
   .header-sub {
-    margin: 0 0 14px;
-    opacity: .92;
-    font-size: .95rem;
-    font-weight: 700;
+    margin: 0 0 12px;
+    opacity: .85;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--ink-soft);
   }
   .lesson-selector {
-    background: rgba(255,255,255,.18);
-    border: 2px solid rgba(255,255,255,.55);
-    min-height: 48px;
-    font-size: 1rem;
+    min-height: 46px;
+    font-size: .95rem;
   }
-  .container { padding-bottom: 120px; }
+  .container { padding-bottom: 110px; }
   .lesson-hero {
-    background: white;
-    border: 1px solid #dbeafe;
-    border-left: 7px solid #3b82f6;
-    border-radius: 20px;
-    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--radius-md);
+    padding: 13px 15px;
     margin: 0 0 16px;
-    box-shadow: 0 8px 20px rgba(37,99,235,.08);
+    box-shadow: var(--shadow-sm);
   }
-  .lesson-hero b { display:block; color:#1e3a8a; font-size:1.08rem; margin-bottom:4px; }
-  .lesson-hero span { color:#475569; font-weight:700; font-size:.92rem; }
+  .lesson-hero b { display:block; color: var(--primary-dark); font-size:1.02rem; margin-bottom:3px; }
+  .lesson-hero span { color: var(--ink-soft); font-weight:600; font-size:.88rem; }
   .tabs { gap: 8px; }
   .tab-btn {
-    min-height: 52px;
-    border-radius: 16px;
-    font-size: .95rem;
+    min-height: 48px;
+    font-size: .92rem;
     min-width: 0;
   }
   .mode-switch-box { gap: 8px; }
   .mode-btn {
-    min-height: 42px;
-    border-radius: 999px;
+    min-height: 40px;
     padding: 8px 14px;
-    background: #fff;
-    color: #334155;
-    border: 2px solid #dbeafe;
-  }
-  .mode-btn.active {
-    background: #2563eb;
-    color: #fff;
-    border-color: #2563eb;
   }
   .tip-box {
-    background: #fff7ed;
-    border-left: 6px solid #f97316;
-    color: #9a3412;
-    font-weight: 750;
-    line-height: 1.55;
+    line-height: 1.5;
   }
-  .flashcard { height: 210px; }
-  .card-word { font-size: 1.7rem; }
+  .flashcard { height: 190px; }
+  .card-word { font-size: 1.5rem; }
   .card-front::after {
     content: '탭하면 뜻이 나와요';
     display: block;
-    margin-top: 12px;
-    font-size: .8rem;
-    color: #64748b;
-    font-weight: 800;
-  }
-  .card-pos {
-    background: #dbeafe;
-    color: #1e40af;
+    margin-top: 10px;
+    font-size: .76rem;
+    color: var(--ink-soft);
+    font-weight: 600;
   }
   .reading-box {
-    padding: 24px 20px 32px;
-    font-size: 1.12rem;
-    line-height: 2.05;
+    padding: 22px 18px 28px;
+    font-size: 1.05rem;
+    line-height: 1.95;
   }
-  .reading-box h3 { font-size: 1.28rem; }
-  .reading-box h4 { margin-top: 22px; }
-  #dopaHUD { bottom: 14px; }
-  #dopaMascot { bottom: 78px; }
+  .reading-box h3 { font-size: 1.2rem; }
+  .reading-box h4 { margin-top: 20px; }
+  #dopaHUD { bottom: 12px; }
+  #dopaMascot { bottom: 70px; }
   @media (max-width: 720px) {
     h1 { font-size: 1.2rem; }
     .tab-btn { min-width: 46%; flex: 1 1 46%; }
-    .flashcard { height: 188px; }
-    .card-word { font-size: 1.42rem; }
+    .flashcard { height: 170px; }
+    .card-word { font-size: 1.3rem; }
   }
 </style>
 
 <style>
 /* ===== 공통 beginner 카드 스타일 ===== */
 .bg-game-box {
-  background: white; border-radius: 22px; padding: 36px 30px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.08); border: 2px solid #e2e8f0;
-  max-width: 640px; margin: 0 auto; text-align: center;
+  background: var(--surface); border-radius: var(--radius-lg); padding: 30px 26px;
+  box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+  max-width: 620px; margin: 0 auto; text-align: center;
 }
 .bg-progress {
-  font-size: 0.9rem; color: #94a3b8; margin-bottom: 8px; font-weight: 600;
+  font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 8px; font-weight: 600;
 }
 .bg-progress-bar {
-  width: 100%; height: 8px; background: #e2e8f0; border-radius: 10px; margin-bottom: 24px; overflow: hidden;
+  width: 100%; height: 6px; background: var(--surface-soft); border-radius: 10px; margin-bottom: 22px; overflow: hidden;
 }
 .bg-progress-fill {
-  height: 100%; background: linear-gradient(90deg,#7c3aed,#db2777); border-radius: 10px; transition: width 0.4s;
+  height: 100%; background: var(--primary); border-radius: 10px; transition: width 0.4s;
 }
 .bg-main-word {
-  font-size: 2.2rem; font-weight: 900; color: #1e293b; margin-bottom: 8px; letter-spacing: -1px;
+  font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px; letter-spacing: -0.5px;
 }
 .bg-main-ko {
-  font-size: 1.15rem; color: #64748b; margin-bottom: 28px; font-weight: 600;
+  font-size: 1.05rem; color: var(--ink-soft); margin-bottom: 24px; font-weight: 600;
 }
-.bg-choices { display: flex; flex-direction: column; gap: 12px; }
+.bg-choices { display: flex; flex-direction: column; gap: 10px; }
 .bg-choice-btn {
-  padding: 16px 20px; border: 2.5px solid #e2e8f0; border-radius: 16px;
-  background: #f8fafc; font-size: 1.15rem; font-weight: 700;
-  cursor: pointer; transition: all 0.18s; color: #334155;
-  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  background: var(--surface-soft); font-size: 1.05rem; font-weight: 700;
+  cursor: pointer; transition: all 0.15s; color: var(--text-main);
+  display: flex; align-items: center; gap: 10px;
 }
-.bg-choice-btn:hover { border-color: #7c3aed; background: #f5f3ff; color: #6d28d9; transform: translateX(4px); }
-.bg-choice-btn.correct { background: #dcfce7; border-color: #16a34a; color: #15803d; animation: popIn 0.3s ease; }
-.bg-choice-btn.wrong   { background: #fee2e2; border-color: #dc2626; color: #991b1b; }
-@keyframes popIn { 0%{transform:scale(0.95)} 60%{transform:scale(1.04)} 100%{transform:scale(1)} }
+.bg-choice-btn:hover { border-color: var(--primary); background: var(--primary-soft); color: var(--primary-dark); }
+.bg-choice-btn.correct { background: var(--success-soft); border-color: var(--success); color: #245C3C; animation: popIn 0.25s ease; }
+.bg-choice-btn.wrong   { background: var(--error-soft); border-color: var(--error); color: #7A362F; }
+@keyframes popIn { 0%{transform:scale(0.96)} 60%{transform:scale(1.02)} 100%{transform:scale(1)} }
 
 .bg-listen-icon {
-  font-size: 3.5rem; cursor: pointer; margin-bottom: 20px;
+  font-size: 3rem; cursor: pointer; margin-bottom: 18px;
   display: block; transition: transform 0.15s;
-  filter: drop-shadow(0 4px 8px rgba(124,58,237,0.3));
 }
-.bg-listen-icon:hover { transform: scale(1.12); }
-.bg-listen-hint { font-size: 0.88rem; color: #a78bfa; margin-bottom: 20px; }
+.bg-listen-icon:hover { transform: scale(1.08); }
+.bg-listen-hint { font-size: 0.84rem; color: var(--ink-soft); margin-bottom: 18px; }
 
 /* 빈칸 채우기 */
 .fill-word-display {
   display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .fill-letter {
-  width: 44px; height: 54px; border-bottom: 3px solid #7c3aed;
+  width: 40px; height: 48px; border-bottom: 2.5px solid var(--primary);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem; font-weight: 900; color: #4c1d95;
+  font-size: 1.4rem; font-weight: 800; color: var(--primary-dark);
   transition: all 0.2s;
 }
-.fill-letter.blank { border-bottom-color: #cbd5e1; color: transparent; }
-.fill-letter.hint  { color: #7c3aed; font-size: 1.2rem; border-bottom-color: #7c3aed; }
+.fill-letter.blank { border-bottom-color: var(--border); color: transparent; }
+.fill-letter.hint  { color: var(--primary); font-size: 1.1rem; border-bottom-color: var(--primary); }
 .fill-input {
-  font-size: 1.5rem; padding: 10px 20px; border: none; border-bottom: 3px solid #0891b2;
-  text-align: center; width: 100%; max-width: 320px; outline: none; font-weight: 800;
-  color: #0e7490; background: transparent; letter-spacing: 4px; text-transform: lowercase;
+  font-size: 1.3rem; padding: 9px 18px; border: none; border-bottom: 2.5px solid var(--accent);
+  text-align: center; width: 100%; max-width: 300px; outline: none; font-weight: 800;
+  color: var(--accent); background: transparent; letter-spacing: 3px; text-transform: lowercase;
 }
 .fill-submit-btn {
-  background: linear-gradient(135deg,#0891b2,#0e7490); color: white;
-  border: none; padding: 14px 40px; border-radius: 25px; font-size: 1.1rem;
-  font-weight: 800; cursor: pointer; margin-top: 18px; transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(8,145,178,0.3);
+  background: var(--primary); color: white;
+  border: none; padding: 12px 34px; border-radius: var(--radius-md); font-size: 1rem;
+  font-weight: 800; cursor: pointer; margin-top: 16px; transition: opacity 0.15s;
 }
-.fill-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(8,145,178,0.4); }
+.fill-submit-btn:hover { opacity: .9; }
 
 /* 보고 베끼기 */
 .copy-target {
-  font-size: 2rem; font-weight: 900; color: #065f46; letter-spacing: 3px;
-  background: #d1fae5; padding: 18px 36px; border-radius: 18px;
-  display: inline-block; margin-bottom: 10px; border: 2px solid #6ee7b7;
+  font-size: 1.7rem; font-weight: 800; color: var(--primary-dark); letter-spacing: 2px;
+  background: var(--primary-soft); padding: 15px 30px; border-radius: var(--radius-md);
+  display: inline-block; margin-bottom: 10px; border: 1px solid var(--border);
 }
-.copy-ko { font-size: 1rem; color: #6b7280; margin-bottom: 24px; }
+.copy-ko { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 22px; }
 .copy-input {
-  font-size: 1.6rem; padding: 12px 20px; border: none; border-bottom: 3px solid #059669;
-  text-align: center; width: 100%; max-width: 320px; outline: none; font-weight: 800;
-  color: #047857; background: transparent; letter-spacing: 3px;
+  font-size: 1.4rem; padding: 10px 18px; border: none; border-bottom: 2.5px solid var(--primary);
+  text-align: center; width: 100%; max-width: 300px; outline: none; font-weight: 800;
+  color: var(--primary-dark); background: transparent; letter-spacing: 2px;
 }
 .copy-char {
-  display: inline-block; border-bottom: 3px solid #6ee7b7;
-  width: 36px; text-align: center; font-size: 1.4rem; font-weight: 800;
-  color: #059669; margin: 2px; transition: all 0.15s;
+  display: inline-block; border-bottom: 2.5px solid var(--border);
+  width: 32px; text-align: center; font-size: 1.25rem; font-weight: 800;
+  color: var(--primary); margin: 2px; transition: all 0.15s;
 }
-.copy-char.correct { color: #16a34a; border-color: #16a34a; }
-.copy-char.wrong   { color: #dc2626; border-color: #dc2626; background: #fee2e2; border-radius: 6px; }
-.copy-char.empty   { color: #d1d5db; }
+.copy-char.correct { color: var(--success); border-color: var(--success); }
+.copy-char.wrong   { color: var(--error); border-color: var(--error); background: var(--error-soft); border-radius: 5px; }
+.copy-char.empty   { color: var(--border); }
 
 /* 뱃지 시스템 */
 .badge-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px;
 }
 .badge-card {
-  background: white; border-radius: 18px; padding: 22px 14px; text-align: center;
-  border: 2px solid #e2e8f0; transition: all 0.2s; position: relative; overflow: hidden;
+  background: var(--surface); border-radius: var(--radius-md); padding: 20px 12px; text-align: center;
+  border: 1.5px solid var(--border); transition: opacity 0.15s; position: relative; overflow: hidden;
 }
-.badge-card.earned { border-color: #fbbf24; box-shadow: 0 4px 16px rgba(251,191,36,0.25); }
-.badge-card.locked { opacity: 0.45; filter: grayscale(1); }
-.badge-icon { font-size: 2.4rem; margin-bottom: 8px; display: block; }
-.badge-name { font-size: 0.85rem; font-weight: 800; color: #334155; margin-bottom: 4px; }
-.badge-cond { font-size: 0.75rem; color: #94a3b8; }
+.badge-card.earned { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+.badge-card.locked { opacity: 0.4; filter: grayscale(1); }
+.badge-icon { font-size: 2.1rem; margin-bottom: 6px; display: block; }
+.badge-name { font-size: 0.82rem; font-weight: 800; color: var(--text-main); margin-bottom: 3px; }
+.badge-cond { font-size: 0.72rem; color: var(--ink-soft); }
 .badge-earned-label {
   position: absolute; top: 8px; right: 8px;
-  background: #fbbf24; color: white; font-size: 0.65rem; font-weight: 800;
+  background: var(--accent); color: white; font-size: 0.62rem; font-weight: 800;
   padding: 2px 7px; border-radius: 10px;
 }
 .badge-stats {
-  display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap;
+  display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap;
 }
 .badge-stat-box {
-  flex: 1; min-width: 120px; background: white; border-radius: 16px;
-  padding: 18px; text-align: center; border: 2px solid #e2e8f0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  flex: 1; min-width: 110px; background: var(--surface); border-radius: var(--radius-md);
+  padding: 16px; text-align: center; border: 1.5px solid var(--border);
 }
-.badge-stat-num { font-size: 2rem; font-weight: 900; color: #7c3aed; }
-.badge-stat-label { font-size: 0.8rem; color: #94a3b8; font-weight: 600; margin-top: 4px; }
+.badge-stat-num { font-size: 1.7rem; font-weight: 900; color: var(--primary); }
+.badge-stat-label { font-size: 0.76rem; color: var(--ink-soft); font-weight: 600; margin-top: 3px; }
 
 /* 공통 다음 버튼 */
 .bg-next-btn {
-  background: linear-gradient(135deg,#7c3aed,#db2777); color: white; border: none;
-  padding: 14px 40px; border-radius: 25px; font-size: 1.05rem; font-weight: 800;
-  cursor: pointer; margin-top: 20px; transition: all 0.2s;
-  box-shadow: 0 4px 14px rgba(124,58,237,0.3); display: none;
+  background: var(--primary); color: white; border: none;
+  padding: 12px 34px; border-radius: var(--radius-md); font-size: 0.98rem; font-weight: 800;
+  cursor: pointer; margin-top: 18px; transition: opacity 0.15s; display: none;
 }
-.bg-next-btn:hover { transform: translateY(-2px); }
+.bg-next-btn:hover { opacity: .9; }
 .bg-result-msg {
-  font-size: 1.15rem; font-weight: 800; min-height: 32px; margin-top: 14px;
+  font-size: 1.05rem; font-weight: 800; min-height: 30px; margin-top: 12px;
 }
 /* 보상 팝업 */
 .reward-popup {
   display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5); z-index: 9999; align-items: center; justify-content: center;
-  backdrop-filter: blur(4px);
+  background: rgba(20,26,23,0.45); z-index: 9999; align-items: center; justify-content: center;
 }
 .reward-popup.show { display: flex; }
 .reward-box {
-  background: white; border-radius: 28px; padding: 44px 36px; text-align: center;
-  max-width: 340px; width: 90%; animation: popIn 0.4s ease;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  background: var(--surface); border-radius: var(--radius-lg); padding: 38px 32px; text-align: center;
+  max-width: 320px; width: 90%; animation: popIn 0.3s ease;
+  box-shadow: 0 20px 50px rgba(20,26,23,0.18);
 }
-.reward-icon { font-size: 4rem; display: block; margin-bottom: 12px; }
-.reward-title { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-bottom: 8px; }
-.reward-sub { font-size: 1rem; color: #64748b; margin-bottom: 24px; }
+.reward-icon { font-size: 3.2rem; display: block; margin-bottom: 10px; }
+.reward-title { font-size: 1.3rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px; }
+.reward-sub { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 20px; }
 .reward-close-btn {
-  background: linear-gradient(135deg,#7c3aed,#db2777); color: white; border: none;
-  padding: 12px 36px; border-radius: 25px; font-size: 1rem; font-weight: 800; cursor: pointer;
+  background: var(--primary); color: white; border: none;
+  padding: 11px 32px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 800; cursor: pointer;
 }
 </style>
 
@@ -547,78 +529,77 @@
     display:flex;
     gap:8px;
     flex-wrap:wrap;
-    padding:10px;
-    margin:0 0 18px;
-    background:rgba(255,255,255,.92);
-    border:1px solid #dbeafe;
-    border-radius:16px;
-    box-shadow:0 5px 16px rgba(15,23,42,.07);
-    backdrop-filter:blur(10px);
+    padding:9px;
+    margin:0 0 16px;
+    background:rgba(255,255,255,.94);
+    border:1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
   }
   .vocab-page-nav-btn {
-    border:1.5px solid #bfdbfe;
-    background:#eff6ff;
-    color:#1d4ed8;
-    font-weight:900;
-    padding:7px 13px;
+    border:1.5px solid var(--border);
+    background: var(--surface-soft);
+    color: var(--primary-dark);
+    font-weight:700;
+    padding:6px 12px;
     border-radius:999px;
     cursor:pointer;
   }
   .vocab-page-nav-btn:hover {
-    background:#2563eb;
+    background: var(--primary);
     color:white;
+    border-color: var(--primary);
   }
   .vocab-page-group {
-    scroll-margin-top:72px;
-    margin:0 0 38px;
+    scroll-margin-top:68px;
+    margin:0 0 34px;
   }
   .vocab-page-head {
     display:flex;
     justify-content:space-between;
     align-items:center;
     gap:12px;
-    padding:15px 18px;
-    margin:0 0 14px;
-    background:linear-gradient(135deg,#dbeafe,#f8fafc);
-    border:1px solid #bfdbfe;
-    border-left:7px solid #2563eb;
-    border-radius:17px;
-    box-shadow:0 4px 12px rgba(37,99,235,.08);
+    padding:13px 16px;
+    margin:0 0 12px;
+    background: var(--surface-soft);
+    border:1px solid var(--border);
+    border-left:4px solid var(--primary);
+    border-radius: var(--radius-md);
   }
   .vocab-page-title {
-    font-size:1.28rem;
-    line-height:1.1;
-    font-weight:950;
-    color:#1e3a8a;
+    font-size:1.15rem;
+    line-height:1.15;
+    font-weight:800;
+    color: var(--primary-dark);
   }
   .vocab-page-section {
-    margin-top:5px;
-    color:#475569;
-    font-size:.9rem;
-    font-weight:750;
+    margin-top:4px;
+    color: var(--ink-soft);
+    font-size:.86rem;
+    font-weight:600;
   }
   .vocab-page-count {
     flex:0 0 auto;
-    background:white;
-    border:1px solid #bfdbfe;
-    color:#1e40af;
-    padding:5px 11px;
+    background: var(--surface);
+    border:1px solid var(--border);
+    color: var(--primary-dark);
+    padding:4px 10px;
     border-radius:999px;
-    font-size:.82rem;
-    font-weight:900;
+    font-size:.78rem;
+    font-weight:700;
   }
   .vocab-page-group > .flashcard-container {
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:16px;
   }
   @media(max-width:720px){
     .vocab-page-nav { top:4px; }
-    .vocab-page-head { padding:13px 14px; }
-    .vocab-page-title { font-size:1.15rem; }
+    .vocab-page-head { padding:11px 13px; }
+    .vocab-page-title { font-size:1.05rem; }
     .vocab-page-group > .flashcard-container {
       grid-template-columns:1fr;
-      gap:14px;
+      gap:12px;
     }
   }
 </style>
@@ -810,12 +791,12 @@
         if (rqIndex >= qData.length) {
           section.innerHTML = `
             <h3 style="color:var(--primary);margin-bottom:16px;">📝 독해 퀴즈</h3>
-            <div style="text-align:center;padding:24px;background:#f0fdf4;border-radius:16px;">
+            <div style="text-align:center;padding:24px;background:var(--success-soft);border-radius:16px;">
               <div style="font-size:2rem;margin-bottom:8px;">🎉</div>
-              <div style="font-size:1.2rem;font-weight:800;color:#166534;">${rqScore} / ${qData.length} 점</div>
+              <div style="font-size:1.2rem;font-weight:800;color:var(--success);">${rqScore} / ${qData.length} 점</div>
               <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
                 <button onclick="document.rqRetry()" style="padding:10px 24px;background:var(--primary);color:white;border:none;border-radius:12px;font-weight:700;cursor:pointer;">🔄 다시 풀기</button>
-                <button onclick="document.rqWrong()" style="padding:10px 24px;background:#ef4444;color:white;border:none;border-radius:12px;font-weight:700;cursor:pointer;">❌ 틀린 것만</button>
+                <button onclick="document.rqWrong()" style="padding:10px 24px;background:var(--error);color:white;border:none;border-radius:12px;font-weight:700;cursor:pointer;">❌ 틀린 것만</button>
               </div>
             </div>`;
           return;
@@ -835,7 +816,7 @@
 
         let navHTML = '';
         if (hist) {
-          if (rqIndex > 0) navHTML += `<button onclick="document.rqGo(${rqIndex-1})" style="padding:8px 18px;background:#e2e8f0;border:none;border-radius:10px;cursor:pointer;font-weight:700;">◀ 이전</button>`;
+          if (rqIndex > 0) navHTML += `<button onclick="document.rqGo(${rqIndex-1})" style="padding:8px 18px;background:var(--surface-soft);border:none;border-radius:10px;cursor:pointer;font-weight:700;">◀ 이전</button>`;
           const nextLabel = rqIndex < qData.length - 1 ? '다음 ▶' : '결과 보기 →';
           const nextStyle = rqIndex < qData.length - 1 ? 'var(--primary)' : '#10b981';
           navHTML += `<button onclick="document.rqGo(${rqIndex+1})" style="margin-left:8px;padding:8px 18px;background:${nextStyle};color:white;border:none;border-radius:10px;cursor:pointer;font-weight:700;">${nextLabel}</button>`;
@@ -846,7 +827,7 @@
           <div class="quiz-card" style="margin-bottom:0;">
             <p style="font-weight:700;font-size:1rem;margin-bottom:16px;">${q.q}</p>
             <div style="display:grid;gap:10px;">${optHTML}</div>
-            ${hist ? `<div style="margin-top:14px;padding:12px;background:#f0fdf4;border-radius:10px;font-size:0.9rem;color:#166534;">💡 ${q.exp}</div>` : ''}
+            ${hist ? `<div style="margin-top:14px;padding:12px;background:var(--success-soft);border-radius:10px;font-size:0.9rem;color:var(--success);">💡 ${q.exp}</div>` : ''}
             ${hist ? `<div style="margin-top:12px;display:flex;">${navHTML}</div>` : ''}
           </div>`;
       }
@@ -1045,7 +1026,7 @@
               </div>
               <div class="card-back">
                 <div class="card-meaning">${item.meaningKo}</div>
-                <div style="font-size:0.9rem; margin-top:10px; color:#dbeafe;">"${item.example}"</div>
+                <div style="font-size:0.9rem; margin-top:10px; color:rgba(255,255,255,.85);">"${item.example}"</div>
               </div>
             </div>`;
           grid.appendChild(card);
@@ -1078,7 +1059,7 @@
 
       container.innerHTML = `
         <div class="vocab-game-box">
-          <div style="color:#64748b; margin-bottom:10px;">단어 ${currentVocabGameIndex+1} / ${list.length}</div>
+          <div style="color:var(--ink-soft); margin-bottom:10px;">단어 ${currentVocabGameIndex+1} / ${list.length}</div>
           <div class="v-game-meaning">${item.meaningKo}</div>
           <div class="v-game-hint">힌트: ${hiddenExample}</div>
           <div>
@@ -1124,7 +1105,7 @@
           <div class="vocab-game-box">
             <h2 style="color:var(--primary)">🎉 퀴즈 완료!</h2>
             <p style="font-size:1.5rem; margin:15px 0;"><b style="color:var(--primary)">${vocabQuizScore}</b> / ${list.length} 정답</p>
-            <p style="color:#64748b; margin-bottom:20px;">${list.length}개 중 ${vocabQuizScore}개를 맞췄어요!</p>
+            <p style="color:var(--ink-soft); margin-bottom:20px;">${list.length}개 중 ${vocabQuizScore}개를 맞췄어요!</p>
             <button class="nav-btn next" onclick="setVocabMode('card')" style="margin-bottom:10px;">카드로 돌아가기</button>
             <button class="nav-btn prev" onclick="currentVocabQuizIndex=0; vocabQuizScore=0; vocabQuizHistory={}; renderVocabQuiz()">다시 하기</button>
           </div>`;
@@ -1152,9 +1133,9 @@
       const safeItemWord = item.word.replace(/'/g, "\\'");
       container.innerHTML = `
         <div class="vocab-game-box">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;background:#f1f5f9;padding:10px 15px;border-radius:10px;font-size:0.9rem;">
-            <span style="color:#64748b;font-weight:600;">문제 ${currentVocabQuizIndex+1} / ${list.length}</span>
-            <span style="color:#2563eb;font-weight:700;">✅ ${vocabQuizScore}개 정답 / ${answeredCount}개 풀음</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;background:var(--surface-soft);padding:10px 15px;border-radius:10px;font-size:0.9rem;">
+            <span style="color:var(--ink-soft);font-weight:600;">문제 ${currentVocabQuizIndex+1} / ${list.length}</span>
+            <span style="color:var(--primary-dark);font-weight:700;">✅ ${vocabQuizScore}개 정답 / ${answeredCount}개 풀음</span>
           </div>
           <div class="v-game-meaning" style="font-size:1.5rem; margin-bottom:15px;">"${item.meaningKo}"</div>
           <button class="hint-btn" onclick="speak('${safeItemWord}')">🔊 발음 힌트 듣기</button>
@@ -1224,13 +1205,13 @@
       gameBox.innerHTML = `
         <div class="game-header">
           <div style="color:var(--primary); font-weight:bold; margin-bottom:8px;">Mission ${idx+1} / ${list.length}</div>
-          <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px 14px; margin-bottom:8px;">
-            <div style="font-size:0.78rem; color:#2563eb; font-weight:700; letter-spacing:0.5px; margin-bottom:4px;">📐 기본 형식</div>
-            <div style="font-family:monospace; font-size:1rem; font-weight:bold; color:#1e3a8a;">${item.formula || item.name}</div>
+          <div style="background:var(--primary-soft); border:1px solid var(--border); border-radius:10px; padding:12px 14px; margin-bottom:8px;">
+            <div style="font-size:0.78rem; color:var(--primary-dark); font-weight:700; letter-spacing:0.5px; margin-bottom:4px;">📐 기본 형식</div>
+            <div style="font-family:monospace; font-size:1rem; font-weight:bold; color:var(--primary-dark);">${item.formula || item.name}</div>
           </div>
-          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:10px 14px; margin-bottom:8px;">
-            <div style="font-size:0.78rem; color:#15803d; font-weight:700; letter-spacing:0.5px; margin-bottom:3px;">🔤 기본 해석</div>
-            <div style="font-size:0.97rem; color:#14532d; font-weight:600;">${item.baseTranslation || ''}</div>
+          <div style="background:var(--success-soft); border:1px solid var(--border); border-radius:10px; padding:10px 14px; margin-bottom:8px;">
+            <div style="font-size:0.78rem; color:var(--success); font-weight:700; letter-spacing:0.5px; margin-bottom:3px;">🔤 기본 해석</div>
+            <div style="font-size:0.97rem; color:var(--success); font-weight:600;">${item.baseTranslation || ''}</div>
           </div>
           <div class="game-meaning">" ${item.meaning} "</div>
           <div class="game-desc">${item.desc}</div>
@@ -1288,7 +1269,7 @@
           <div class="quiz-card">
             <h3>🎉 퀴즈 완료!</h3>
             <p style="font-size:1.5rem; margin:15px 0;">점수: <b style="color:var(--primary)">${quizScore}</b> / ${quizData.length}</p>
-            <p style="color:#64748b; margin-bottom:20px;">${quizData.length}문제 중 ${quizScore}개 정답!</p>
+            <p style="color:var(--ink-soft); margin-bottom:20px;">${quizData.length}문제 중 ${quizScore}개 정답!</p>
             <button class="nav-btn prev" onclick="currentQuizIndex=0; renderQuizQuestion()" style="margin-right:10px;">◀ 처음으로</button>
             <button class="nav-btn next" onclick="resetQuiz()">다시 하기</button>
           </div>`;
@@ -1302,9 +1283,9 @@
       const answeredCount = Object.keys(quizHistory).length;
       container.innerHTML = `
         <div class="quiz-card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;background:#f1f5f9;padding:10px 15px;border-radius:10px;font-size:0.95rem;">
-            <span style="color:#64748b;font-weight:600;">Q${currentQuizIndex+1} / ${quizData.length}</span>
-            <span style="color:#2563eb;font-weight:700;">✅ ${quizScore}개 정답 / ${answeredCount}개 풀음</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;background:var(--surface-soft);padding:10px 15px;border-radius:10px;font-size:0.95rem;">
+            <span style="color:var(--ink-soft);font-weight:600;">Q${currentQuizIndex+1} / ${quizData.length}</span>
+            <span style="color:var(--primary-dark);font-weight:700;">✅ ${quizScore}개 정답 / ${answeredCount}개 풀음</span>
           </div>
           <h3 style="margin-bottom:20px;">Q${currentQuizIndex+1}. ${q.q}</h3>
           <div class="quiz-options">
@@ -1312,13 +1293,13 @@
               let style=""; let disabled="";
               if(isAnswered) {
                 disabled="disabled";
-                if(i===q.a) style="background:#dcfce7; border-color:#166534;";
-                else if(i===history.selected) style="background:#fee2e2; border-color:#ef4444;";
+                if(i===q.a) style="background:var(--success-soft); border-color:var(--success);";
+                else if(i===history.selected) style="background:var(--error-soft); border-color:var(--error);";
               }
               return `<button onclick="checkAnswer(${i}, this)" style="${style}" ${disabled}>${opt}</button>`;
             }).join('')}
           </div>
-          <div style="margin-top:20px; text-align:left; background:#f1f5f9; padding:15px; border-radius:10px; display:${isAnswered?'block':'none'}">
+          <div style="margin-top:20px; text-align:left; background:var(--surface-soft); padding:15px; border-radius:10px; display:${isAnswered?'block':'none'}">
             ${isAnswered ? (history.isCorrect ? `<b style="color:var(--success)">정답! ⭕</b>` : `<b style="color:var(--accent)">오답! ❌</b><br>정답: ${q.options[q.a]}`) : ''}
             <br><small>${q.exp}</small>
           </div>
@@ -1429,8 +1410,8 @@
       container.innerHTML = `<div class="bg-game-box">
         ${makeProgress(vocab.length, vocab.length, '#7c3aed')}
         <div style="font-size:2.5rem;margin-bottom:16px;">🎉</div>
-        <div style="font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:8px;">모두 완료!</div>
-        <div style="color:#64748b;margin-bottom:24px;">총 ${vocab.length}개 단어를 들었어요!</div>
+        <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:8px;">모두 완료!</div>
+        <div style="color:var(--ink-soft);margin-bottom:24px;">총 ${vocab.length}개 단어를 들었어요!</div>
         <button class="bg-next-btn" style="display:inline-block;" onclick="currentListenIndex=0;renderListenMode()">🔄 다시 하기</button>
       </div>`;
       return;
@@ -1443,7 +1424,7 @@
       ${makeProgress(currentListenIndex, vocab.length, '#7c3aed')}
       <span class="bg-listen-icon" onclick="speakWord('${item.word.replace(/'/g,"\\'")}')">🔊</span>
       <div class="bg-listen-hint">위 아이콘을 눌러 단어를 들어보세요</div>
-      <div style="font-size:0.95rem;color:#475569;margin-bottom:20px;font-weight:600;">들은 단어의 <b>한국어 뜻</b>을 고르세요</div>
+      <div style="font-size:0.95rem;color:var(--ink-soft);margin-bottom:20px;font-weight:600;">들은 단어의 <b>한국어 뜻</b>을 고르세요</div>
       <div class="bg-choices">
         ${choices.map(c=>`
           <button class="bg-choice-btn" onclick="checkListenAnswer(this,'${c.word}','${item.word}','${item.meaningKo}')">
@@ -1466,8 +1447,8 @@
       btns.forEach(b=>{ if(b.textContent.includes(meaningKo)) b.classList.add('correct'); });
     }
     document.getElementById('listenMsg').innerHTML = isCorrect
-      ? `<span style="color:#16a34a;">✅ 정답! "${correct}" = ${meaningKo}</span>`
-      : `<span style="color:#dc2626;">❌ 정답은 "${correct}" = ${meaningKo}</span>`;
+      ? `<span style="color:var(--success);">✅ 정답! "${correct}" = ${meaningKo}</span>`
+      : `<span style="color:var(--error);">❌ 정답은 "${correct}" = ${meaningKo}</span>`;
     document.getElementById('listenNext').style.display = 'inline-block';
     addXP('listen', isCorrect);
   };
@@ -1495,7 +1476,7 @@
       container.innerHTML = `<div class="bg-game-box">
         ${makeProgress(vocab.length, vocab.length, '#0891b2')}
         <div style="font-size:2.5rem;margin-bottom:16px;">🎉</div>
-        <div style="font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:8px;">모두 완료!</div>
+        <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:8px;">모두 완료!</div>
         <button class="bg-next-btn" style="display:inline-block;" onclick="currentFillIndex=0;renderFillMode()">🔄 다시 하기</button>
       </div>`;
       return;
@@ -1513,9 +1494,9 @@
     container.innerHTML = `<div class="bg-game-box">
       ${makeProgress(currentFillIndex, vocab.length, '#0891b2')}
       <div class="bg-main-ko">${item.meaningKo}</div>
-      <div style="font-size:0.9rem;color:#94a3b8;margin-bottom:16px;">품사: ${posBadgeHTML(item.pos)}</div>
+      <div style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:16px;">품사: ${posBadgeHTML(item.pos)}</div>
       <div class="fill-word-display" id="fillLetters">${letters}</div>
-      <div style="font-size:0.85rem;color:#7c3aed;margin-bottom:14px;">💡 첫 글자 힌트: <b>${hint}</b> (총 ${word.length}글자)</div>
+      <div style="font-size:0.85rem;color:var(--accent);margin-bottom:14px;">💡 첫 글자 힌트: <b>${hint}</b> (총 ${word.length}글자)</div>
       <input class="fill-input" id="fillInput" placeholder="${hint}..." maxlength="${word.length+3}"
         oninput="fillPreview(this.value,'${word}')"
         onkeydown="if(event.key==='Enter')checkFillAnswer('${word}','${item.meaningKo}')">
@@ -1545,8 +1526,8 @@
     const val = inp.value.trim().toLowerCase();
     const isCorrect = val === word.toLowerCase();
     document.getElementById('fillMsg').innerHTML = isCorrect
-      ? `<span style="color:#16a34a;">✅ 정답! "${word}"</span>`
-      : `<span style="color:#dc2626;">❌ 정답은 "${word}"</span>`;
+      ? `<span style="color:var(--success);">✅ 정답! "${word}"</span>`
+      : `<span style="color:var(--error);">❌ 정답은 "${word}"</span>`;
     inp.disabled = true;
     document.querySelector('.fill-submit-btn').disabled = true;
     document.getElementById('fillNext').style.display = 'inline-block';
@@ -1568,7 +1549,7 @@
       container.innerHTML = `<div class="bg-game-box">
         ${makeProgress(vocab.length, vocab.length, '#059669')}
         <div style="font-size:2.5rem;margin-bottom:16px;">🎉</div>
-        <div style="font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:8px;">모두 완료!</div>
+        <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:8px;">모두 완료!</div>
         <button class="bg-next-btn" style="display:inline-block;" onclick="currentCopyIndex=0;renderCopyMode()">🔄 다시 하기</button>
       </div>`;
       return;
@@ -1579,7 +1560,7 @@
 
     container.innerHTML = `<div class="bg-game-box">
       ${makeProgress(currentCopyIndex, vocab.length, '#059669')}
-      <div style="font-size:0.9rem;color:#6b7280;margin-bottom:10px;">아래 단어를 보고 그대로 입력하세요</div>
+      <div style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:10px;">아래 단어를 보고 그대로 입력하세요</div>
       <div class="copy-target" onclick="speakWord('${word.replace(/'/g,"\\'")}')">
         ${word} <span style="font-size:1rem;">🔊</span>
       </div>
@@ -1590,7 +1571,7 @@
         oninput="copyPreview(this.value,'${word}')"
         onkeydown="if(event.key==='Enter')checkCopyAnswer('${word}','${item.meaningKo}')">
       <br>
-      <button class="fill-submit-btn" style="background:linear-gradient(135deg,#059669,#047857);" onclick="checkCopyAnswer('${word}','${item.meaningKo}')">확인 ✓</button>
+      <button class="fill-submit-btn" style="background:var(--primary);" onclick="checkCopyAnswer('${word}','${item.meaningKo}')">확인 ✓</button>
       <div class="bg-result-msg" id="copyMsg"></div>
       <button class="bg-next-btn" id="copyNext" onclick="currentCopyIndex++;renderCopyMode()">다음 →</button>
     </div>`;
@@ -1613,8 +1594,8 @@
     const val = inp.value.trim();
     const isCorrect = val.toLowerCase() === word.toLowerCase();
     document.getElementById('copyMsg').innerHTML = isCorrect
-      ? `<span style="color:#16a34a;">✅ 완벽해요! "${word}"</span>`
-      : `<span style="color:#dc2626;">❌ 정답: "${word}"</span>`;
+      ? `<span style="color:var(--success);">✅ 완벽해요! "${word}"</span>`
+      : `<span style="color:var(--error);">❌ 정답: "${word}"</span>`;
     inp.disabled = true;
     document.getElementById('copyNext').style.display = 'inline-block';
     addXP('copy', isCorrect);
@@ -1673,118 +1654,103 @@
 
 <style id="dopamineStyles">
   @keyframes dopaPop {
-    0% { transform: scale(0.3) rotate(-15deg); opacity: 0; }
-    50% { transform: scale(1.4) rotate(5deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0); opacity: 1; }
+    0% { transform: scale(0.85); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
   }
   @keyframes dopaFloatUp {
-    0% { transform: translate(-50%, 0) scale(0.5); opacity: 0; }
-    20% { transform: translate(-50%, -20px) scale(1.2); opacity: 1; }
-    100% { transform: translate(-50%, -120px) scale(0.8); opacity: 0; }
+    0% { transform: translate(-50%, 0) scale(0.7); opacity: 0; }
+    20% { transform: translate(-50%, -14px) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -80px) scale(0.9); opacity: 0; }
   }
   @keyframes dopaShake {
     0%,100% { transform: translateX(0); }
-    10%,30%,50%,70%,90% { transform: translateX(-8px); }
-    20%,40%,60%,80% { transform: translateX(8px); }
+    25%,75% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
   }
   @keyframes dopaPulse {
     0%,100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+    50% { transform: scale(1.06); }
   }
   @keyframes dopaSlideDown {
     0% { transform: translateY(-100%); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
   }
-  @keyframes dopaRainbow {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
-  }
   @keyframes dopaSparkle {
-    0%,100% { opacity: 0.4; transform: scale(0.8) rotate(0deg); }
-    50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+    0%,100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 0.9; transform: scale(1.05); }
   }
   @keyframes dopaBounce {
     0%,20%,60%,100% { transform: translateY(0); }
-    40% { transform: translateY(-25px); }
-    80% { transform: translateY(-12px); }
+    40% { transform: translateY(-10px); }
+    80% { transform: translateY(-5px); }
   }
 
-  /* 도파민 상태바 (화면 하단 고정) */
+  /* 상태바 (화면 하단 고정) */
   #dopaHUD {
-    position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
-    z-index: 9998; display: flex; gap: 10px; align-items: center;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: white; padding: 8px 16px; border-radius: 30px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35), 0 0 0 2px rgba(255,255,255,0.08) inset;
-    font-family: 'Pretendard', sans-serif; font-weight: 800;
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    user-select: none; font-size: 0.88rem;
-    animation: dopaSlideDown 0.5s ease-out;
+    position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+    z-index: 9998; display: flex; gap: 8px; align-items: center;
+    background: var(--text-main);
+    color: white; padding: 7px 14px; border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(20,26,23,.2);
+    font-family: 'Pretendard', sans-serif; font-weight: 700;
+    user-select: none; font-size: 0.82rem;
+    animation: dopaSlideDown 0.4s ease-out;
     max-width: 95vw; overflow: hidden;
   }
   #dopaHUD .hud-chip {
-    display: flex; align-items: center; gap: 5px;
-    padding: 4px 10px; border-radius: 20px;
-    background: rgba(255,255,255,0.08);
-    transition: all 0.3s;
+    display: flex; align-items: center; gap: 4px;
+    padding: 3px 9px; border-radius: 999px;
+    background: rgba(255,255,255,0.1);
+    transition: background 0.2s;
     white-space: nowrap;
   }
-  #dopaHUD .hud-chip.active { animation: dopaPulse 0.4s; }
-  #dopaHUD .lv-chip {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    box-shadow: 0 2px 8px rgba(245,158,11,0.4);
-  }
-  #dopaHUD .xp-chip { background: linear-gradient(135deg, #2563eb, #1e40af); }
-  #dopaHUD .streak-chip { background: linear-gradient(135deg, #ef4444, #b91c1c); }
-  #dopaHUD .streak-chip.on-fire {
-    animation: dopaPulse 0.6s infinite;
-    background: linear-gradient(135deg, #ef4444, #f59e0b, #ef4444);
-    background-size: 200% 200%;
-  }
+  #dopaHUD .hud-chip.active { animation: dopaPulse 0.3s; }
+  #dopaHUD .lv-chip { background: rgba(255,255,255,0.16); }
+  #dopaHUD .xp-chip { background: rgba(255,255,255,0.1); }
+  #dopaHUD .streak-chip { background: rgba(255,255,255,0.1); }
+  #dopaHUD .streak-chip.on-fire { background: var(--accent); }
   #dopaHUD .hud-progress {
-    width: 80px; height: 6px; background: rgba(255,255,255,0.15);
+    width: 70px; height: 5px; background: rgba(255,255,255,0.14);
     border-radius: 3px; overflow: hidden;
   }
   #dopaHUD .hud-progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #fbbf24, #f97316, #ef4444);
-    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 0 10px rgba(251,191,36,0.6);
+    background: var(--accent);
+    transition: width 0.4s ease;
   }
   #dopaHUD button.hud-reset {
-    background: rgba(239,68,68,0.2); color: #fca5a5;
-    border: none; border-radius: 50%; width: 22px; height: 22px;
-    cursor: pointer; font-size: 0.75rem; font-weight: 900;
+    background: rgba(255,255,255,0.12); color: white;
+    border: none; border-radius: 50%; width: 20px; height: 20px;
+    cursor: pointer; font-size: 0.7rem; font-weight: 700;
   }
 
   /* +XP 플로팅 텍스트 */
   .doppin-float {
     position: fixed; z-index: 99999; pointer-events: none;
-    font-size: 1.8rem; font-weight: 900;
-    color: #fbbf24; text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 0 15px rgba(251,191,36,0.8);
-    animation: dopaFloatUp 1.3s cubic-bezier(0.2,0.8,0.4,1) forwards;
+    font-size: 1.35rem; font-weight: 800;
+    color: var(--accent); text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    animation: dopaFloatUp 1s ease forwards;
   }
 
   /* 콤보 배너 */
   #dopaComboBanner {
     position: fixed; top: 15%; left: 50%; transform: translateX(-50%);
     z-index: 99998; pointer-events: none;
-    font-size: 3rem; font-weight: 900;
+    font-size: 2rem; font-weight: 800;
     color: white; text-align: center;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    padding: 20px 50px; border-radius: 25px;
-    background: linear-gradient(135deg, #f97316, #ef4444, #ec4899);
-    background-size: 300% 300%;
-    box-shadow: 0 20px 60px rgba(239,68,68,0.5);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    padding: 16px 38px; border-radius: var(--radius-lg);
+    background: var(--primary-dark);
+    box-shadow: 0 12px 32px rgba(20,26,23,.25);
     opacity: 0;
-    transition: opacity 0.25s;
+    transition: opacity 0.2s;
   }
   #dopaComboBanner.show {
     opacity: 1;
-    animation: dopaPop 0.5s, dopaRainbow 3s linear infinite;
+    animation: dopaPop 0.35s;
   }
   #dopaComboBanner .combo-sub {
-    display:block; font-size: 1.1rem; margin-top: 6px; font-weight: 700; opacity: 0.95;
+    display:block; font-size: 0.95rem; margin-top: 5px; font-weight: 600; opacity: 0.9;
   }
 
   /* 컨페티 캔버스 */
@@ -1793,95 +1759,94 @@
     pointer-events: none;
   }
 
-  /* 화면 테두리 섬광 */
+  /* 화면 테두리 강조 */
   #dopaFlash {
     position: fixed; inset: 0; z-index: 99996;
     pointer-events: none; opacity: 0;
     transition: opacity 0.15s;
-    box-shadow: inset 0 0 120px 30px rgba(34,197,94,0.6);
+    box-shadow: inset 0 0 100px 24px rgba(63,143,95,0.35);
   }
-  #dopaFlash.wrong { box-shadow: inset 0 0 120px 30px rgba(239,68,68,0.55); }
+  #dopaFlash.wrong { box-shadow: inset 0 0 100px 24px rgba(180,81,75,0.32); }
   #dopaFlash.show { opacity: 1; }
 
   /* 레벨업 오버레이 */
   #dopaLevelUp {
     position: fixed; inset: 0; z-index: 99999;
     display: none; align-items: center; justify-content: center;
-    background: radial-gradient(circle at center, rgba(15,23,42,0.85), rgba(15,23,42,0.98));
-    backdrop-filter: blur(8px);
+    background: rgba(20,26,23,0.75);
   }
-  #dopaLevelUp.show { display: flex; animation: dopaPop 0.6s; }
+  #dopaLevelUp.show { display: flex; animation: dopaPop 0.4s; }
   #dopaLevelUp .lu-card {
-    background: linear-gradient(135deg, #facc15, #f97316, #ef4444);
-    background-size: 200% 200%;
-    padding: 40px 60px; border-radius: 30px;
-    text-align: center; color: white;
-    box-shadow: 0 30px 80px rgba(251,146,60,0.5);
-    animation: dopaRainbow 3s linear infinite;
+    background: var(--surface);
+    padding: 36px 46px; border-radius: var(--radius-lg);
+    text-align: center; color: var(--text-main);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
   }
-  #dopaLevelUp .lu-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; text-shadow: 0 3px 10px rgba(0,0,0,0.3); }
-  #dopaLevelUp .lu-lv { font-size: 6rem; font-weight: 900; line-height: 1; margin: 10px 0; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); }
-  #dopaLevelUp .lu-msg { font-size: 1.2rem; font-weight: 700; opacity: 0.95; }
+  #dopaLevelUp .lu-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; color: var(--primary-dark); }
+  #dopaLevelUp .lu-lv { font-size: 4rem; font-weight: 900; line-height: 1; margin: 8px 0; color: var(--primary); }
+  #dopaLevelUp .lu-msg { font-size: 1.05rem; font-weight: 600; opacity: 0.85; }
   #dopaLevelUp .lu-ok {
-    margin-top: 22px; padding: 14px 40px; border: none; border-radius: 30px;
-    background: white; color: #c2410c; font-size: 1.1rem; font-weight: 900;
-    cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    margin-top: 20px; padding: 12px 34px; border: none; border-radius: 999px;
+    background: var(--primary); color: white; font-size: 1rem; font-weight: 800;
+    cursor: pointer;
   }
-  #dopaLevelUp .lu-ok:hover { transform: scale(1.05); }
+  #dopaLevelUp .lu-ok:hover { opacity: .9; }
 
   /* 응원 캐릭터 (우측 하단) */
   #dopaMascot {
-    position: fixed; right: 14px; bottom: 70px;
-    z-index: 9997; width: 58px; height: 58px;
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    position: fixed; right: 14px; bottom: 66px;
+    z-index: 9997; width: 50px; height: 50px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; cursor: pointer; user-select: none;
-    box-shadow: 0 6px 20px rgba(245,158,11,0.4);
-    transition: all 0.3s;
+    font-size: 1.6rem; cursor: pointer; user-select: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s;
   }
-  #dopaMascot:hover { transform: scale(1.15) rotate(10deg); }
-  #dopaMascot.cheer { animation: dopaBounce 0.8s; }
-  #dopaMascot.sad   { animation: dopaShake 0.5s; background: linear-gradient(135deg,#94a3b8,#64748b); }
+  #dopaMascot:hover { transform: scale(1.08); }
+  #dopaMascot.cheer { animation: dopaBounce 0.6s; }
+  #dopaMascot.sad   { animation: dopaShake 0.4s; }
   #dopaMascot .mascot-bubble {
-    position: absolute; right: 68px; bottom: 8px;
-    background: white; color: #1e293b; font-size: 0.8rem; font-weight: 700;
-    padding: 8px 12px; border-radius: 12px; white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    opacity: 0; transform: translateX(10px); transition: all 0.3s;
+    position: absolute; right: 60px; bottom: 6px;
+    background: var(--text-main); color: white; font-size: 0.76rem; font-weight: 600;
+    padding: 7px 11px; border-radius: var(--radius-sm); white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+    opacity: 0; transform: translateX(8px); transition: all 0.2s;
     pointer-events: none;
   }
   #dopaMascot.show-bubble .mascot-bubble { opacity: 1; transform: translateX(0); }
   #dopaMascot .mascot-bubble::after {
-    content: ''; position: absolute; right: -6px; bottom: 14px;
-    border: 6px solid transparent; border-left-color: white;
+    content: ''; position: absolute; right: -5px; bottom: 12px;
+    border: 5px solid transparent; border-left-color: var(--text-main);
   }
 
-  /* 정답 시 버튼 반짝임 효과 */
+  /* 정답 시 반짝임 효과 */
   .dopa-sparkle {
     position: absolute; pointer-events: none;
-    font-size: 1.3rem; animation: dopaSparkle 0.8s ease-out forwards;
+    font-size: 1.1rem; animation: dopaSparkle 0.6s ease-out forwards;
   }
 
   /* 사운드 토글 — 마스코트 위에 배치 */
   #dopaSoundToggle {
-    position: fixed; right: 22px; bottom: 138px;
-    z-index: 9997; width: 36px; height: 36px;
-    background: rgba(15,23,42,0.85); color: white;
-    border: 2px solid rgba(255,255,255,0.15); border-radius: 50%;
-    cursor: pointer; font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: fixed; right: 20px; bottom: 126px;
+    z-index: 9997; width: 32px; height: 32px;
+    background: var(--surface); color: var(--text-main);
+    border: 1.5px solid var(--border); border-radius: 50%;
+    cursor: pointer; font-size: 0.9rem;
+    box-shadow: var(--shadow-sm);
     display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
+    transition: transform 0.15s;
   }
-  #dopaSoundToggle:hover { transform: scale(1.1); }
+  #dopaSoundToggle:hover { transform: scale(1.06); }
 
   @media (max-width: 600px) {
-    #dopaHUD { font-size: 0.78rem; padding: 6px 12px; gap: 6px; }
-    #dopaHUD .hud-progress { width: 50px; }
-    #dopaComboBanner { font-size: 2rem; padding: 15px 30px; }
-    #dopaMascot { width: 48px; height: 48px; font-size: 1.6rem; bottom: 64px; }
-    #dopaLevelUp .lu-card { padding: 30px 30px; }
-    #dopaLevelUp .lu-lv { font-size: 4.5rem; }
+    #dopaHUD { font-size: 0.74rem; padding: 5px 10px; gap: 5px; }
+    #dopaHUD .hud-progress { width: 46px; }
+    #dopaComboBanner { font-size: 1.5rem; padding: 12px 24px; }
+    #dopaMascot { width: 42px; height: 42px; font-size: 1.3rem; bottom: 60px; }
+    #dopaLevelUp .lu-card { padding: 26px 26px; }
+    #dopaLevelUp .lu-lv { font-size: 3.2rem; }
   }
 </style>
 <div id="dopaFlash"></div>
@@ -2002,7 +1967,7 @@
   function sizeCanvas() { cvs.width = window.innerWidth; cvs.height = window.innerHeight; }
   sizeCanvas(); window.addEventListener('resize', sizeCanvas);
 
-  const CONFETTI_COLORS = ['#f59e0b','#ef4444','#22c55e','#3b82f6','#a855f7','#ec4899','#eab308','#14b8a6'];
+  const CONFETTI_COLORS = ['#3F6B54','#B9793C','#6B8F7A','#8FA98F','#C9A96B','#5F7A8A'];
   function spawnConfetti(count, originX, originY) {
     originX = originX ?? window.innerWidth / 2;
     originY = originY ?? window.innerHeight / 3;
